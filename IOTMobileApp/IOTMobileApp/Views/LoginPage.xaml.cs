@@ -15,8 +15,23 @@ namespace IOTMobileApp.Views
         public LoginPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
         }
         private void LoginButton_Clicked(object sender, EventArgs e)
+        {
+            bool isEmailEmpty = string.IsNullOrEmpty(emailEntry.Text);
+            bool isPasswordEmpty = string.IsNullOrEmpty(passwordEntry.Text);
+
+            if (isEmailEmpty || isPasswordEmpty)
+            {
+
+            }
+            else
+            {
+                Navigation.PushAsync(new MainPage());
+            }
+        }
+        private void RegisterButton_Clicked(object sender, EventArgs e)
         {
             bool isEmailEmpty = string.IsNullOrEmpty(emailEntry.Text);
             bool isPasswordEmpty = string.IsNullOrEmpty(passwordEntry.Text);
