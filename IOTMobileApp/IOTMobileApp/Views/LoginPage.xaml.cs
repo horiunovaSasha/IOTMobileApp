@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using IOTMobileApp.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,7 +17,7 @@ namespace IOTMobileApp.Views
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
         }
-        private void LoginButton_Clicked(object sender, EventArgs e)
+        private async void LoginButton_Clicked(object sender, EventArgs e)
         {
             bool isEmailEmpty = string.IsNullOrEmpty(emailEntry.Text);
             bool isPasswordEmpty = string.IsNullOrEmpty(passwordEntry.Text);
@@ -28,6 +28,7 @@ namespace IOTMobileApp.Views
             }
             else
             {
+                var venues = await ApiService.Authorised(emailEntry.Text, passwordEntry.Text);
                 Navigation.PushAsync(new MainPage());
             }
         }

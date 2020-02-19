@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Net;
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
@@ -22,6 +22,7 @@ namespace IOTMobileApp.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
+            ServicePointManager.ServerCertificateValidationCallback += (o, cert, chain, errors) => true;
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
