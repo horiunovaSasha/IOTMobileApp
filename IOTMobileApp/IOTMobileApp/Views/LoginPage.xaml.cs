@@ -28,7 +28,7 @@ namespace IOTMobileApp.Views
             }
             else
             {
-                var venues = await ApiService.Authorised(emailEntry.Text, passwordEntry.Text);
+                //var venues = await ApiService.Authorised(emailEntry.Text, passwordEntry.Text);
                 Navigation.PushAsync(new MainPage());
             }
         }

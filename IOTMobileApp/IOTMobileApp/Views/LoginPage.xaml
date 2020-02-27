@@ -10,7 +10,7 @@
                      Margin="20">
             <Label
                 FontSize="25"
-                Text="Welcome to OIT mobile"
+                Text="Welcome to HOme Kit!"
                 TextColor="DimGray"
                 VerticalTextAlignment="Center"
                 HorizontalTextAlignment="Center"
