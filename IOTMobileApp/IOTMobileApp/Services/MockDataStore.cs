@@ -17,7 +17,7 @@ namespace IOTMobileApp.Services
                 new Item { Id = Guid.NewGuid().ToString(), Text = "Перший ефект", Description="This is an item description." },
                 new Item { Id = Guid.NewGuid().ToString(), Text = "Перший ефект", Description="This is an item description." },
                 new Item { Id = Guid.NewGuid().ToString(), Text = "Перший ефект", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "", Description="This is an item description." },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Перший ефект", Description="This is an item description." },
                 new Item { Id = Guid.NewGuid().ToString(), Text = "Перший ефект", Description="This is an item description." },
                 new Item { Id = Guid.NewGuid().ToString(), Text = "Перший ефект", Description="This is an item description." }
             };

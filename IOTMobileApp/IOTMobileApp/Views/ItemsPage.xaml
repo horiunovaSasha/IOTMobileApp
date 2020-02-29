@@ -8,9 +8,9 @@
              Title="{Binding Title}"
              x:Name="BrowseItemsPage">
 
-    <ContentPage.ToolbarItems>
+   <!-- <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
-    </ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems> -->
 
     <StackLayout>
         <ListView x:Name="ItemsListView"
@@ -33,14 +33,25 @@
                 </x:Array>
             </d:ListView.ItemsSource>
             <ListView.ItemTemplate>
+                
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="10">
-                            <Label Text="{Binding Text}" 
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                             <Label Text="{Binding Text}" 
                                 d:Text="{Binding .}"
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16" />
+                                FontSize="16"
+                                   Grid.Row="0"
+                                   Grid.Column="0"/>
+                              <Switch Grid.Row="0" Grid.Column="1" VerticalOptions="Start" x:Name="swRekorida"/>
+                            </Grid>
+                            
                             <Label Text="{Binding Description}" 
                                 d:Text="Item description"
                                 LineBreakMode="NoWrap"
