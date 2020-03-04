@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="IOTMobileApp.Views.PlakPage"
+             xmlns:vm="clr-namespace:IOTMobileApp.ViewModels"
+             Title="Яскравість">
+    
+ 
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="Accent">#96d1ff</Color>
+            <Color x:Key="LightTextColor">#999999</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout>
+        <Label Text="Вкажіть бажану яскравість:"
+              
+               FontSize="Large"
+               HorizontalOptions="Center"
+               Margin="20"/>
+        <Slider Margin="20" Minimum="0" Maximum="100"  />
+    <BoxView WidthRequest="1">
+       
+    </BoxView>
+         <Label Text="Або ввімкніть атоматичну регуляцію яскравості:"
+               
+               FontSize="20"
+               HorizontalOptions="Center"
+                VerticalOptions="Center"
+               Margin="20, 60"/>
+        <Grid Margin="10, 20" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                             <Label Text="Підбирати автоматично" 
+                           
+                                    Margin="10"
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16"
+                                   Grid.Row="0"
+                                   Grid.Column="0"/>
+                              <Switch Grid.Row="0" Grid.Column="1" VerticalOptions="Start" x:Name="swRekorida"/>
+                            </Grid>
+
+    </StackLayout>
+
+    
+</ContentPage>

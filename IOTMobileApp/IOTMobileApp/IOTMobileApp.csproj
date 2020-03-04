@@ -17,11 +17,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\BrightnessPage.xaml.cs" />
+    <Compile Remove="Views\AboutPage %28copy%29.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Update="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\BrightnessPage.xaml" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Views\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
