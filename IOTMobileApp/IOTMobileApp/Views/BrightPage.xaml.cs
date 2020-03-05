@@ -8,9 +8,9 @@ namespace IOTMobileApp.Views
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
-    public partial class PlakPage : ContentPage
+    public partial class BrightPage : ContentPage
     {
-        public PlakPage()
+        public BrightPage()
         {
             InitializeComponent();
         }

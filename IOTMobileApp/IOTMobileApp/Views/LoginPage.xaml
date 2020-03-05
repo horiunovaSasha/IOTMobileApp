@@ -10,7 +10,7 @@
                      Margin="20">
             <Label
                 FontSize="25"
-                Text="Welcome to HOme Kit!"
+                Text="Welcome to Home Kit!"
                 TextColor="DimGray"
                 VerticalTextAlignment="Center"
                 HorizontalTextAlignment="Center"

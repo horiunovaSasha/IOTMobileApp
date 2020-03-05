@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="IOTMobileApp.Views.BrightPage"
+             xmlns:vm="clr-namespace:IOTMobileApp.ViewModels"
+             Title="Яскравість">
+    
+ 
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="Accent">#96d1ff</Color>
+            <Color x:Key="LightTextColor">#999999</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout>
+
+        <Grid Margin="10, 20" >
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <BoxView  Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" BackgroundColor="LightGray"/>
+            <Label Text="Вкажіть бажану яскравість:"
+                   Grid.Row="0"
+                   Grid.Column ="0"
+                   FontSize="Large"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                  />
+            <Slider Margin="10" Minimum="0" Maximum="100"  Grid.Row="1" MaximumTrackColor="Red" MinimumTrackColor ="Green" ThumbColor="Blue"/>
+            <BoxView  Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2" BackgroundColor="LightBlue"  />
+
+            <Label Text="Або ввімкніть атоматичну регуляцію яскравості:"
+                   Grid.Row="2"
+                   FontSize="Large"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Margin="20, 60"/>
+            <Label Text="Підбирати автоматично" 
+                           
+                                    Margin="20, 0"
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16"
+                                   Grid.Row="3"
+                                   Grid.Column="0"/>
+                              <Switch Grid.Row="3" Grid.Column="1" VerticalOptions="Start" x:Name="swRekorida"/>
+                            </Grid>
+
+    </StackLayout>
+
+    
+</ContentPage>
