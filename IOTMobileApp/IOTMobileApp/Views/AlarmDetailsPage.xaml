@@ -5,13 +5,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="IOTMobileApp.Views.AlarmDetailsPage"
-             Title="{Binding Title}">
+             Title="Редагувати час">
 
     <StackLayout Spacing="20" Padding="15">
-        <Label Text="Text:" FontSize="Medium" />
-        <Label Text="{Binding Item.Text}" d:Text="Item name" FontSize="Small"/>
-        <Label Text="Description:" FontSize="Medium" />
-        <Label Text="{Binding Item.Description}" d:Text="Item description" FontSize="Small"/>
+        <Label Text="Вибрати інший час" FontSize="Medium" />
+        <TimePicker Time="{Binding Alarm.Time}" />
+        <!--<Label Text="Description:" FontSize="Medium" />
+        <Label Text="{Binding Item.Description}" d:Text="Item description" FontSize="Small"/>-->
     </StackLayout>
     
 </ContentPage>

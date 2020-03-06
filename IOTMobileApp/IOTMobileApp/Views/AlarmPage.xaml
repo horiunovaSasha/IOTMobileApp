@@ -9,11 +9,10 @@
              x:Name="BrowseItemsPage">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
+        <ToolbarItem Text="Додати" Clicked="AddItem_Clicked" />
     </ContentPage.ToolbarItems> 
 
     <StackLayout>
-        <Label Text ="Alarms"></Label>
         <ListView x:Name="ItemsListView"
                   ItemsSource="{Binding Alarms}"
                   VerticalOptions="FillAndExpand"
@@ -43,7 +42,7 @@
                                     <ColumnDefinition Width="5*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                             <Label Text="{Binding Time}" 
+                                <Label Text="{Binding Time , StringFormat='{}{0:hh\\:mm}'}" 
                                 d:Text="{Binding .}"
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 

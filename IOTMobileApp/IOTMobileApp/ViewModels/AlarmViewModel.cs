@@ -21,7 +21,7 @@ namespace IOTMobileApp.ViewModels
             Alarms = new ObservableCollection<Alarm>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            MessagingCenter.Subscribe<NewItemPage, Alarm>(this, "AddAlarm", async (obj, item) =>
+            MessagingCenter.Subscribe<NewAlarmPage, Alarm>(this, "AddAlarm", async (obj, item) =>
             {
                 var newItem = item as Alarm;
                 Alarms.Add(newItem);

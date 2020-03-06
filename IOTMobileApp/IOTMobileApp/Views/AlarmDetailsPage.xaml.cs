@@ -28,7 +28,7 @@ namespace IOTMobileApp.Views
 
             var item = new Alarm()
             {
-                Time = DateTime.Now
+                Time = new TimeSpan(12, 05, 00)
             };
 
             viewModel = new AlarmDetailViewModel(item);

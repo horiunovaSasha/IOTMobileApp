@@ -14,10 +14,10 @@ namespace IOTMobileApp.Services
         {
             alarms = new List<Alarm>()
             {
-                new Alarm {Id = 0, Time = new DateTime(2020, 03, 06, 12, 0, 0)},
-                new Alarm {Id = 1, Time = new DateTime(2020, 03, 06, 13, 10, 0)},
-                new Alarm {Id = 2, Time = new DateTime(2020, 03, 06, 14, 15, 0)},
-                new Alarm {Id = 3, Time = new DateTime(2020, 03, 06, 15, 30, 0)},
+                new Alarm {Id = 0, Time = new TimeSpan(12, 05, 00) },
+                new Alarm {Id = 1, Time = new TimeSpan(15, 05, 00)},
+                new Alarm {Id = 2, Time = new TimeSpan(15, 03, 00)},
+                new Alarm {Id = 3, Time = new TimeSpan(17, 05, 00)},
             };
         }
 
