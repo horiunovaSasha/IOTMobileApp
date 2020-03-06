@@ -14,12 +14,10 @@ namespace IOTMobileApp.Services
         {
             items = new List<Item>()
             {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Перший ефект", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Перший ефект", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Перший ефект", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Перший ефект", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Перший ефект", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Перший ефект", Description="This is an item description." }
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Мерехтіння", Description="This is an item description." },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Переходи", Description="This is an item description." },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Монотонний", Description="This is an item description." },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Випадкові ефекти", Description="This is an item description." },
             };
         }
 
@@ -32,7 +30,7 @@ namespace IOTMobileApp.Services
 
         public async Task<bool> UpdateItemAsync(Item item)
         {
-            var oldItem = items.Where((Item arg) => arg.Id == item.Id).FirstOrDefault();
+            var oldItem = items.FirstOrDefault((Item arg) => arg.Id == item.Id);
             items.Remove(oldItem);
             items.Add(item);
 
@@ -41,7 +39,7 @@ namespace IOTMobileApp.Services
 
         public async Task<bool> DeleteItemAsync(string id)
         {
-            var oldItem = items.Where((Item arg) => arg.Id == id).FirstOrDefault();
+            var oldItem = items.FirstOrDefault((Item arg) => arg.Id == id);
             items.Remove(oldItem);
 
             return await Task.FromResult(true);
@@ -56,5 +54,6 @@ namespace IOTMobileApp.Services
         {
             return await Task.FromResult(items);
         }
+
     }
 }

@@ -13,7 +13,7 @@ namespace IOTMobileApp.ViewModels
     public class BaseViewModel : INotifyPropertyChanged
     {
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
-
+        public IAlarmDataStore<Alarm> AlarmDataStore => new AlarmDataStore();
         bool isBusy = false;
         public bool IsBusy
         {

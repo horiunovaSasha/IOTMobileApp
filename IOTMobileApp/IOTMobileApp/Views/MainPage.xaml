@@ -36,7 +36,7 @@
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>
-                <views:AboutPage />
+                <views:AlarmsPage />
             </x:Arguments>
         </NavigationPage>
          <NavigationPage Title="Нічник">

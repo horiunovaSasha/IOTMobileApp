@@ -21,11 +21,20 @@
     <Compile Remove="Views\AboutPage %28copy%29.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\AlarmPage.xaml.cs">
+      <DependentUpon>AlarmPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\AlarmDetailsPage.xaml.cs">
+      <DependentUpon>AlarmDetailsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\BrightPage.xaml.cs">
       <DependentUpon>BrightPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\NewAlarmPage.xaml.cs">
+      <DependentUpon>NewAlarmPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
