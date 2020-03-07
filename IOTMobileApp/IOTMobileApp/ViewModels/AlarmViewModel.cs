@@ -27,6 +27,11 @@ namespace IOTMobileApp.ViewModels
                 Alarms.Add(newItem);
                 await AlarmDataStore.AddAlarmAsync(newItem);
             });
+            MessagingCenter.Subscribe<AlarmDetailsPage, Alarm>(this, "UpdateAlarm", async (obj, item) =>
+            {
+                var newItem = item as Alarm;
+                await AlarmDataStore.UpdateAlarmAsync(newItem);
+            });
         }
 
         async Task ExecuteLoadItemsCommand()

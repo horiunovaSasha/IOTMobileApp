@@ -5,6 +5,7 @@ using Xamarin.Forms.Xaml;
 
 using IOTMobileApp.Models;
 using IOTMobileApp.ViewModels;
+using System.Threading.Tasks;
 
 namespace IOTMobileApp.Views
 {
@@ -14,25 +15,34 @@ namespace IOTMobileApp.Views
     public partial class AlarmDetailsPage : ContentPage
     {
         AlarmDetailViewModel viewModel;
+        public Alarm Alarm { get; set; }
 
         public AlarmDetailsPage(AlarmDetailViewModel viewModel)
         {
             InitializeComponent();
-
+            Alarm = new Alarm() { Time = new TimeSpan(12, 05, 01) };
             BindingContext = this.viewModel = viewModel;
+            //BindingContext = this;
         }
 
         public AlarmDetailsPage()
         {
             InitializeComponent();
 
-            var item = new Alarm()
-            {
-                Time = new TimeSpan(12, 05, 00)
-            };
+            var item = viewModel.Alarm;
 
             viewModel = new AlarmDetailViewModel(item);
             BindingContext = viewModel;
+        }
+        async void Save_Clicked(object sender, EventArgs e)
+        {
+            MessagingCenter.Send(this, "UpdateAlarm", this.viewModel.Alarm);
+            await Navigation.PopToRootAsync();
+        }
+
+        async void Cancel_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopToRootAsync();
         }
     }
 }

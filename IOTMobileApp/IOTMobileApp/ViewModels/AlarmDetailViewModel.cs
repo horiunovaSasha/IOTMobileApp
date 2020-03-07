@@ -6,10 +6,10 @@ namespace IOTMobileApp.ViewModels
 {
     public class AlarmDetailViewModel : BaseViewModel
     {
-        public Alarm Item { get; set; }
-        public AlarmDetailViewModel(Alarm item = null)
+        public Alarm Alarm { get; set; }
+        public AlarmDetailViewModel(Alarm alarm = null)
         {
-            Item = item;
+            Alarm = alarm;
         }
     }
 }
