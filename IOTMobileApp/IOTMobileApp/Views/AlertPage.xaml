@@ -6,6 +6,41 @@
              mc:Ignorable="d"
              x:Class="IOTMobileApp.Views.AlertPage"
              Title="Сигналізація">
-    <Label>Сигналізація</Label>
+    <StackLayout>
+         <Label
+                Text="Ви можкте ввімкнути дачик руху і отримувати сповіщення якщо буде виявлено рух"
+           
+             FontSize="Large"
+             HorizontalOptions="Center"
+             HorizontalTextAlignment="Center"
+             VerticalOptions="Center"
+             Margin="20, 30"
+             TextColor="Gray"/>
+        <Grid>
+        <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <BoxView  Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="#f6f6f6" Margin="8, 0"/>
+           
+           <Label Text="Ввімкнути сигналізацію"
+                                Grid.ColumnSpan="2"
+                                LineBreakMode="NoWrap"
+                                Margin="15,5,15,0"
+                                FontSize="Large"
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                   Grid.Row="0"
+                                   Grid.Column="0"/>
+                              <Switch Grid.Row="0" Grid.Column="2" VerticalOptions="Start" Margin="0,5"/>
+            
+                 </Grid>
+    </StackLayout>
+    
+
 </ContentPage>
 

@@ -6,7 +6,19 @@
              mc:Ignorable="d"
              x:Class="IOTMobileApp.Views.NightLightPage"
              Title="Нічник">
-             <Grid Margin="10, 20" >
+            <StackLayout>
+                <Label
+                Text="Годинник ввімкнеться вночі, якщо виявить рух"
+           
+             FontSize="Large"
+             HorizontalOptions="Center"
+             HorizontalTextAlignment="Center"
+             VerticalOptions="Center"
+             Margin="20, 30"
+             TextColor="Gray"/>
+
+
+                <Grid Margin="10, 20" >
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*"/>
@@ -17,6 +29,7 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="2*"/>
+                <RowDefinition Height="4*"/>
             </Grid.RowDefinitions>
             <BoxView  Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="#f6f6f6" Margin="8, 0"/>
            <Label Text="Ввімкнути нічник"
@@ -32,7 +45,7 @@
 
             <BoxView  Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" BackgroundColor="#f6f6f6"  Margin="8, 10"/>                                                   ,0"/>
 
-             <Label Text="Виберіть кінцевий час:"
+             <Label Text="Початоковий час:"
                    Grid.Row="1"
                    FontSize="Medium"
                    VerticalOptions="Center"
@@ -47,7 +60,7 @@
                 Margin="15, 0"/>
 
            
-            <Label Text="Виберіть кінцевий час:"
+            <Label Text="Кінцевий час:"
                    Grid.Row="2"
                    FontSize="Medium"
                    VerticalOptions="Center"
@@ -61,5 +74,8 @@
                 HorizontalOptions="EndAndExpand"
                 Margin="15, 0"/>
                  </Grid>
+
+            </StackLayout>
+             
 
 </ContentPage>
