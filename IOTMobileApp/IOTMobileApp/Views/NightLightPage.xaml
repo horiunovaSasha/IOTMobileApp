@@ -6,5 +6,60 @@
              mc:Ignorable="d"
              x:Class="IOTMobileApp.Views.NightLightPage"
              Title="Нічник">
-    <Label>Нічник</Label>
+             <Grid Margin="10, 20" >
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <BoxView  Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="#f6f6f6" Margin="8, 0"/>
+           <Label Text="Ввімкнути нічник"
+                                Grid.ColumnSpan="2"
+                                LineBreakMode="NoWrap"
+                                Margin="15,5,15,0"
+                                FontSize="Large"
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                   Grid.Row="0"
+                                   Grid.Column="0"/>
+                              <Switch Grid.Row="0" Grid.Column="2" VerticalOptions="Start" Margin="0,5"/>
+
+
+            <BoxView  Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" BackgroundColor="#f6f6f6"  Margin="8, 10"/>                                                   ,0"/>
+
+             <Label Text="Виберіть кінцевий час:"
+                   Grid.Row="1"
+                   FontSize="Medium"
+                   VerticalOptions="Center"
+                   Grid.Column="0"
+                    Margin="12, 0"/>
+            <TimePicker
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                Grid.Column="1"
+                VerticalOptions="Center"
+                HorizontalOptions="EndAndExpand"
+                Margin="15, 0"/>
+
+           
+            <Label Text="Виберіть кінцевий час:"
+                   Grid.Row="2"
+                   FontSize="Medium"
+                   VerticalOptions="Center"
+                   Grid.Column="0"
+                    Margin="12, 0"/>
+            <TimePicker
+                Grid.Row="2"
+                Grid.ColumnSpan="2"
+                Grid.Column="1"
+                VerticalOptions="Center"
+                HorizontalOptions="EndAndExpand"
+                Margin="15, 0"/>
+                 </Grid>
+
 </ContentPage>

@@ -31,7 +31,7 @@
                 <RowDefinition Height="4*"/>
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
-            <BoxView  Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" BackgroundColor="LightGray"/>
+            <BoxView  Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" BackgroundColor="#f6f6f6" Margin="8, 0"/>
             <Label Text="Вкажіть бажану яскравість:"
                    Grid.Row="0"
                    Grid.Column ="0"
@@ -40,7 +40,7 @@
                    VerticalOptions="Center"
                   />
             <Slider Margin="10" Minimum="0" Maximum="100"  Grid.Row="1"/>
-            <BoxView  Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2" BackgroundColor="LightBlue"  />
+            <BoxView  Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2" BackgroundColor="#f6f6f6"  Margin="8, 20, 8                                                     ,0"/>
 
             <Label Text="Або ввімкніть атоматичну регуляцію яскравості:"
                    Grid.Row="2"
