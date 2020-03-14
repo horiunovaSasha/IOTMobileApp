@@ -36,6 +36,12 @@
     <Compile Update="Views\NewAlarmPage.xaml.cs">
       <DependentUpon>NewAlarmPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\NightLightPage.xaml.cs">
+      <DependentUpon>NightLightPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\AlertPage.xaml.cs">
+      <DependentUpon>AlertPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

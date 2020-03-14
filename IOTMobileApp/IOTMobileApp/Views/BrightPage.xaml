@@ -39,7 +39,7 @@
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                   />
-            <Slider Margin="10" Minimum="0" Maximum="100"  Grid.Row="1" MaximumTrackColor="Red" MinimumTrackColor ="Green" ThumbColor="Blue"/>
+            <Slider Margin="10" Minimum="0" Maximum="100"  Grid.Row="1"/>
             <BoxView  Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2" BackgroundColor="LightBlue"  />
 
             <Label Text="Або ввімкніть атоматичну регуляцію яскравості:"

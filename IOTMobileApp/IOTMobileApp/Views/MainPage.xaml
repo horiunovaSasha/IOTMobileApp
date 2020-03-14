@@ -46,7 +46,7 @@
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>
-                <views:AboutPage />
+                <views:NightLightPage />
             </x:Arguments>
         </NavigationPage>
          <NavigationPage Title="Сигналізація">
@@ -56,7 +56,7 @@
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>
-                <views:AboutPage />
+                <views:AlertPage />
             </x:Arguments>
         </NavigationPage>
     </TabbedPage.Children>
