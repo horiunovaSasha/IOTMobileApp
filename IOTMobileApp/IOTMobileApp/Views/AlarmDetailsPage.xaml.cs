@@ -20,7 +20,7 @@ namespace IOTMobileApp.Views
         public AlarmDetailsPage(AlarmDetailViewModel viewModel)
         {
             InitializeComponent();
-            Alarm = new Alarm() { Time = new TimeSpan(12, 05, 01) };
+            Alarm = viewModel.Alarm;
             BindingContext = this.viewModel = viewModel;
             //BindingContext = this;
         }

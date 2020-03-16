@@ -8,8 +8,8 @@
              Title="Новий будильник">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
-        <ToolbarItem Text="Save" Clicked="Save_Clicked" />
+        <ToolbarItem Text="Скасувати" Clicked="Cancel_Clicked" />
+        <ToolbarItem Text="Зберегти" Clicked="Save_Clicked" />
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>

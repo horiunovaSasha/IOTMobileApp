@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using Foundation;
@@ -26,7 +27,10 @@ namespace IOTMobileApp.iOS
                 .ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
 
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+            var dbName = "homeKit.sqlite";
+            var folderName = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal),"..", "Library");
+            var fullPath = Path.Combine(folderName, dbName);
+            LoadApplication(new App(fullPath));
 
             return base.FinishedLaunching(app, options);
         }

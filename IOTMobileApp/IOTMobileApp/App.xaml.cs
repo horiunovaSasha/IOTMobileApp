@@ -15,7 +15,7 @@ namespace IOTMobileApp
         public static string AzureBackendUrl =
             DeviceInfo.Platform == DevicePlatform.Android ? "http://10.0.2.2:5000" : "http://localhost:5000";
         public static bool UseMockDataStore = true;
-
+        public static string DatabaseLocalion;
         public App()
         {
             InitializeComponent();
@@ -26,7 +26,17 @@ namespace IOTMobileApp
                 DependencyService.Register<AzureDataStore>();
             MainPage = new NavigationPage(new LoginPage());
         }
+        public App( string databaseLocation)
+        {
+            InitializeComponent();
 
+            if (UseMockDataStore)
+                DependencyService.Register<MockDataStore>();
+            else
+                DependencyService.Register<AzureDataStore>();
+            MainPage = new NavigationPage(new LoginPage());
+            DatabaseLocalion = databaseLocation;
+        }
         protected override void OnStart()
         {
         }

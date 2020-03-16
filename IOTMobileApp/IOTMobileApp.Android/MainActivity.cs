@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using System.IO;
 
 namespace IOTMobileApp.Droid
 {
@@ -21,7 +22,13 @@ namespace IOTMobileApp.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            LoadApplication(new App());
+
+            var dbName = "homeKit.sqlite";
+            var folderName = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            var fullPath = Path.Combine(folderName, dbName);
+            LoadApplication(new App(fullPath));
+            
+
             ServicePointManager.ServerCertificateValidationCallback += (o, cert, chain, errors) => true;
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
