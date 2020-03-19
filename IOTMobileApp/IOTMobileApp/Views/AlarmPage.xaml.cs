@@ -48,8 +48,9 @@ namespace IOTMobileApp.Views
         {
             base.OnAppearing();
 
-            if (viewModel.Alarms.Count == 0)
+           // if (viewModel.Alarms.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
         }
+       
     }
 }

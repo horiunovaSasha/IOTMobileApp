@@ -13,13 +13,71 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15">
+        <!--<StackLayout Spacing="20" Padding="15">
             <Label Text="Змінити час" FontSize="Medium" />
-            <!--<Entry Text="{Binding Item.Time}" d:Text="Час" FontSize="Small" />-->
+            --><!--<Entry Text="{Binding Item.Time}" d:Text="Час" FontSize="Small" />--><!--
             <TimePicker Time="{Binding Alarm.Time}" />
-            <!--<Label Text="Description" FontSize="Medium" />
-            <Editor Text="{Binding Item.Description}" d:Text="Item description" FontSize="Small" Margin="0" />-->
-        </StackLayout>
+            --><!--<Label Text="Description" FontSize="Medium" />
+            <Editor Text="{Binding Item.Description}" d:Text="Item description" FontSize="Small" Margin="0" />--><!--
+        </StackLayout>-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <BoxView  Grid.Column="0" Margin="15, 0"/>
+
+            <Label 
+                    Grid.Row="0" 
+                    Text="Виберіть час:" 
+                    FontSize="Large"
+                    HorizontalTextAlignment="Start"
+                    Margin="2, 15"
+                    TextColor="Gray"
+                />
+            <TimePicker Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="0" Time="{Binding Alarm.Time}" />
+            <Label 
+                    Grid.Row="1" 
+                    Text="Виберіть дні:" 
+                    FontSize="Large"
+                    HorizontalTextAlignment="Start"
+                    Margin="0, 5"
+                    TextColor="Gray"
+                    
+                />
+            <Label Grid.Row="2" Grid.Column="0"  Text="Понеділок" FontSize="Medium" />
+            <CheckBox Grid.Row="2" Grid.Column="2" x:Name="MondaynCheckbox" />
+
+            <Label Grid.Row="3" Grid.Column="0" Text="Вівторок" FontSize="Medium" />
+            <CheckBox Grid.Row="3" Grid.Column="2" x:Name="TuesdayCheckbox" />
+
+            <Label Grid.Row="4" Grid.Column="0" Text="Середа" FontSize="Medium" />
+            <CheckBox Grid.Row="4" Grid.Column="2" x:Name="WednesdayCheckbox" />
+
+            <Label Grid.Row="5" Grid.Column="0" Text="Четвер" FontSize="Medium" />
+            <CheckBox Grid.Row="5" Grid.Column="2" x:Name="ThursdayCheckbox" />
+
+            <Label  Grid.Row="6" Grid.Column="0" Text="П'ятниця" FontSize="Medium" />
+            <CheckBox Grid.Row="6" Grid.Column="2" x:Name="FridayCheckbox" />
+
+            <Label Grid.Row="7" Grid.Column="0" Text="Субота" FontSize="Medium" />
+            <CheckBox Grid.Row="7" Grid.Column="2" x:Name="SaturdayCheckbox" />
+
+            <Label Grid.Row="8" Grid.Column="0" Text="Неділя" FontSize="Medium" />
+            <CheckBox Grid.Row="8" Grid.Column="2" x:Name="SundayCheckbox" />
+        </Grid>
     </ContentPage.Content>
 
 </ContentPage>

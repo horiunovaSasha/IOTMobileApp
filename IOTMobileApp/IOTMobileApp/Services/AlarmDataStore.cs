@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using IOTMobileApp.Models;
+using SQLite;
 
 namespace IOTMobileApp.Services
 {
@@ -12,29 +13,41 @@ namespace IOTMobileApp.Services
 
         public AlarmDataStore()
         {
-            alarms = new List<Alarm>()
-            {
-                new Alarm {Id = 0, Time = new TimeSpan(12, 05, 00) },
-                new Alarm {Id = 1, Time = new TimeSpan(15, 05, 00)},
-                new Alarm {Id = 2, Time = new TimeSpan(15, 03, 00)},
-                new Alarm {Id = 3, Time = new TimeSpan(17, 05, 00)},
-            };
+            //var connection = new SQLiteConnection(App.DatabaseLocalion);
+            //connection.DeleteAll<Alarm>();
+             alarms = GetAlarmsAsync(false).Result.ToList();
         }
 
-        public async Task<bool> AddAlarmAsync(Alarm item)
+        public async Task<bool> AddAlarmAsync(Alarm alarm)
         {
-            alarms.Add(item);
-
-            return await Task.FromResult(true);
+           // alarms.Add(alarm);
+            var connection = new SQLiteConnection(App.DatabaseLocalion);
+            connection.CreateTable<Alarm>();
+            var rows = connection.Insert(alarm);
+            connection.Close();
+            if (rows > 0) 
+            {
+                return await Task.FromResult(true);
+            }
+            return await Task.FromResult(false);
         }
 
         public async Task<bool> UpdateAlarmAsync(Alarm alarm)
         {
-            var oldItem = alarms.FirstOrDefault((arg) => arg.Id == alarm.Id);
-            alarms.Remove(oldItem);
-            alarms.Add(alarm);
+            var connection = new SQLiteConnection(App.DatabaseLocalion);
+            connection.CreateTable<Alarm>();
+            var rows = connection.Update(alarm);
 
-            return await Task.FromResult(true);
+            if (rows > 0)
+            {
+                return await Task.FromResult(true);
+            }
+            alarms = GetAlarmsAsync(false).Result.ToList();
+            //var oldItem = alarms.FirstOrDefault((arg) => arg.Id == alarm.Id);
+            //alarms.Remove(oldItem);
+            //alarms.Add(alarm);
+
+            return await Task.FromResult(false);
         }
 
         public async Task<bool> DeleteAlarmAsync(int id)
@@ -52,7 +65,50 @@ namespace IOTMobileApp.Services
 
         public async Task<IEnumerable<Alarm>> GetAlarmsAsync(bool forceRefresh = false)
         {
+            var connection = new SQLiteConnection(App.DatabaseLocalion);
+            connection.CreateTable<Alarm>();
+            var alarms = (from x in connection.Table<Alarm>() select x).ToList();
+            connection.Close();
+
+            GetStringOfDays(alarms);
+
             return await Task.FromResult(alarms);
+        }
+
+        private void GetStringOfDays(List<Alarm> alarms)
+        {
+            foreach (var alarm in alarms)
+            {
+                alarm.DisplaDaysSting += "Повтор: ";
+                if (!string.IsNullOrEmpty(alarm.SerializedDays))
+                {
+                    var days = alarm.SerializedDays.Replace('[', ' ').Replace(']', ' ').Trim().Split(',').ToList();
+                    foreach (var day in days)
+                    {
+                        alarm.DisplaDaysSting += $"{GetShortDay(day)} ";
+                    }
+
+                }
+                else
+                {
+                    alarm.DisplaDaysSting += "не встановлено";
+                }
+            }
+        }
+        private string GetShortDay(string day)
+        {
+            int parsedDay = int.Parse(day);
+            switch (parsedDay)
+            {
+                case 1: return "ПН";
+                case 2: return "ВТ";
+                case 3: return "СР";
+                case 4: return "ЧТ";
+                case 5: return "ПТ";
+                case 6: return "СБ";
+                case 7: return "НД";
+                default: return string.Empty;
+            }
         }
     }
 }

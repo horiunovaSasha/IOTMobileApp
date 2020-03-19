@@ -39,7 +39,14 @@
                                 FontSize="16"
                                    Grid.Row="0"
                                    Grid.Column="0"/>
-                              <Switch Grid.Row="0" Grid.Column="1" VerticalOptions="Start" x:Name="swRekorida"/>
+                                <Label Text="{Binding DisplaDaysSting}"  
+                                d:Text="{Binding .}"
+                                LineBreakMode="NoWrap" 
+                                Margin=" 5"
+                                FontSize="16"
+                                   Grid.Row="1"
+                                   Grid.Column="0"/>
+                                <Switch Grid.Row="0" Grid.Column="1" VerticalOptions="Start" x:Name="swRekorida"/>
                             </Grid>
                         </StackLayout>
                     </ViewCell>

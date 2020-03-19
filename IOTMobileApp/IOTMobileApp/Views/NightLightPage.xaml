@@ -43,7 +43,7 @@
                               <Switch Grid.Row="0" Grid.Column="2" VerticalOptions="Start" Margin="0,5"/>
 
 
-            <BoxView  Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" BackgroundColor="#f6f6f6"  Margin="8, 10"/>                                                   ,0"/>
+            <BoxView  Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" BackgroundColor="#f6f6f6"  Margin="8, 10"/>                                               
 
              <Label Text="Початоковий час:"
                    Grid.Row="1"

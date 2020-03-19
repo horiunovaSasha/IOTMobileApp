@@ -6,6 +6,7 @@ using Xamarin.Forms.Xaml;
 using IOTMobileApp.Models;
 using IOTMobileApp.ViewModels;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace IOTMobileApp.Views
 {
@@ -36,6 +37,7 @@ namespace IOTMobileApp.Views
         }
         async void Save_Clicked(object sender, EventArgs e)
         {
+            CheckEnabledDays();
             MessagingCenter.Send(this, "UpdateAlarm", this.viewModel.Alarm);
             await Navigation.PopToRootAsync();
         }
@@ -43,6 +45,26 @@ namespace IOTMobileApp.Views
         async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopToRootAsync();
+        }
+        private void CheckEnabledDays()
+        {
+            var daysList = new List<WeekDays>();
+
+            if (MondaynCheckbox.IsChecked)
+                daysList.Add(WeekDays.Monday);
+            if (TuesdayCheckbox.IsChecked)
+                daysList.Add(WeekDays.Tuesday);
+            if (WednesdayCheckbox.IsChecked)
+                daysList.Add(WeekDays.Wednesday);
+            if (ThursdayCheckbox.IsChecked)
+                daysList.Add(WeekDays.Thursday);
+            if (FridayCheckbox.IsChecked)
+                daysList.Add(WeekDays.Friday);
+            if (SaturdayCheckbox.IsChecked)
+                daysList.Add(WeekDays.Saturday);
+            if (SundayCheckbox.IsChecked)
+                daysList.Add(WeekDays.Sunday);
+            this.viewModel.Alarm.DaysOfWeek = daysList;
         }
     }
 }
