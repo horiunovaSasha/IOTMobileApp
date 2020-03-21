@@ -19,10 +19,10 @@
             </x:Arguments>
         </NavigationPage>
         
-        <NavigationPage Title="Яскравість">
+        <NavigationPage Title="Налаштування">
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="iOS" Value="brightness.png"/>
+                    <On Platform="iOS" Value="setting.png"/>
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>

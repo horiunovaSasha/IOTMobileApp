@@ -130,6 +130,7 @@
     <BundleResource Include="Resources\night.png" />
     <BundleResource Include="Resources\alarm.png" />
     <BundleResource Include="Resources\al.png" />
+    <BundleResource Include="Resources\setting.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

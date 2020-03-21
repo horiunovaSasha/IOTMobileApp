@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="IOTMobileApp.Views.BrightPage"
              xmlns:vm="clr-namespace:IOTMobileApp.ViewModels"
-             Title="Яскравість">
+             Title="Налаштування">
     
  
     
@@ -18,15 +18,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <StackLayout>
-         <Label
-                Text="Ви можкте вибрати яскравість годинника або ввімкнути автоматичну адаптацію яскравості"
-                Grid.Row="0"
-             FontSize="Large"
-             HorizontalOptions="Center"
-             HorizontalTextAlignment="Center"
-             VerticalOptions="Center"
-             Margin="20, 30"
-             TextColor="Gray"/>
+         
         <Grid Margin="10, 20" >
 
             <Grid.ColumnDefinitions>
@@ -34,34 +26,56 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="3*" />
-                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*" />
                 <RowDefinition Height="4*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                 <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
+            <Label 
+                    Grid.Row="0" 
+                    Text="Встановіть час:" 
+                    FontSize="Large"
+                    HorizontalTextAlignment="Start"
+                    Margin="2, 15"
+                    TextColor="Gray"
+                />
+                    <TimePicker Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="0" />
+            <Label
+                Text="Налаштування яскравості:"
+                Grid.Row="1"
+                Margin="23, 0, 0, 0"
+             FontSize="25"
+             HorizontalTextAlignment="Center"
+             VerticalOptions="Center"
+            TextColor="DarkSlateGray"
+             Grid.ColumnSpan="2"
+             />
 
-
-            <BoxView  Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="8, 0"/>
+            <BoxView  Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" />
             <Label Text="Виберіть бажану яскравість:"
-                   Grid.Row="0"
+                   Grid.Row="2"
                    Grid.Column ="0"
-                   Margin="12, 0"
+                  
                    FontSize="Large"
                    VerticalOptions="Center"
-                   TextColor="#333333"
+                   TextColor="Gray"
+                    Grid.ColumnSpan="2"
+                   HorizontalTextAlignment="Start"
                   />
-            <Slider Margin="10" Minimum="0" Maximum="100"  Grid.Row="1"/>
+            <Slider Minimum="0" Maximum="500"  Grid.Row="3" Grid.ColumnSpan="2"/>
 
 
-            <BoxView  Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="8, 20" />   
+            <BoxView  Grid.Row="4" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="8, 20" />   
 
             <Label Text="Підбирати автоматично"
-                                Grid.Row="2"
+                                Grid.Row="4"
                                 Grid.Column="0"
-                                Margin="12, 30"
+                                Margin="0, 30"
                                 LineBreakMode="NoWrap" 
                                 FontSize="Large"
-                                TextColor="#333333"/>
-                              <Switch Grid.Row="2" Grid.Column="1" VerticalOptions="Start" x:Name="swRekorida" Margin="12, 30"/>
+                                TextColor="Gray"/>
+                              <Switch Grid.Row="4" Grid.Column="1" VerticalOptions="Start" x:Name="swRekorida" Margin="50, 30,0, 30"/>
                             </Grid>
 
     </StackLayout>
