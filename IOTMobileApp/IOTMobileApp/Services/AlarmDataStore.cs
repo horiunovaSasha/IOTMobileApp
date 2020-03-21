@@ -15,7 +15,7 @@ namespace IOTMobileApp.Services
         {
             //var connection = new SQLiteConnection(App.DatabaseLocalion);
             //connection.DeleteAll<Alarm>();
-             alarms = GetAlarmsAsync(false).Result.ToList();
+            alarms = GetAlarmsAsync(false).Result.ToList();
         }
 
         public async Task<bool> AddAlarmAsync(Alarm alarm)

@@ -10,7 +10,21 @@ namespace IOTMobileApp.Models
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public TimeSpan Time { get; set; }
+        public string SerializedTime { get; set; }
+
+        [Ignore]
+        [TextBlob(nameof(Time))]
+        public TimeSpan Time
+        {
+            get
+            {
+                return JsonConvert.DeserializeObject<TimeSpan>(SerializedTime);
+            }
+            set
+            {
+                SerializedTime = JsonConvert.SerializeObject(value);
+            }
+        }
         
         [Ignore]
         public string DisplaDaysSting { get; set; }
