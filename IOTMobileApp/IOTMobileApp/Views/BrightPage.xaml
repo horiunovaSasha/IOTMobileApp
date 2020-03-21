@@ -40,25 +40,27 @@
             </Grid.RowDefinitions>
 
 
-            <BoxView  Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" BackgroundColor="#f6f6f6" Margin="8, 0"/>
+            <BoxView  Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="8, 0"/>
             <Label Text="Виберіть бажану яскравість:"
                    Grid.Row="0"
                    Grid.Column ="0"
-                   Margin="10, 0"
+                   Margin="12, 0"
                    FontSize="Large"
                    VerticalOptions="Center"
+                   TextColor="#333333"
                   />
             <Slider Margin="10" Minimum="0" Maximum="100"  Grid.Row="1"/>
 
 
-            <BoxView  Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2" BackgroundColor="#f6f6f6"  Margin="8, 20" />   
+            <BoxView  Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="8, 20" />   
 
             <Label Text="Підбирати автоматично"
                                 Grid.Row="2"
                                 Grid.Column="0"
                                 Margin="12, 30"
                                 LineBreakMode="NoWrap" 
-                                FontSize="Large"/>
+                                FontSize="Large"
+                                TextColor="#333333"/>
                               <Switch Grid.Row="2" Grid.Column="1" VerticalOptions="Start" x:Name="swRekorida" Margin="12, 30"/>
                             </Grid>
 

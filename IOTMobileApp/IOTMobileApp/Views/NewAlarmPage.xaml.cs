@@ -4,21 +4,22 @@ using Xamarin.Forms;
 
 using IOTMobileApp.Models;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace IOTMobileApp.Views
 {
     [DesignTimeVisible(false)]
     public partial class NewAlarmPage : ContentPage
     {
-        public Alarm alarm { get; set; }
+        public Alarm Alarm { get; set; }
 
         public NewAlarmPage()
         {
             InitializeComponent();
 
-            alarm = new Alarm
+            Alarm = new Alarm
             {
-                Time = new TimeSpan(12, 05, 00),
+               Time = new TimeSpan(12, 05, 00),
             };
 
             BindingContext = this;
@@ -27,7 +28,11 @@ namespace IOTMobileApp.Views
         async void Save_Clicked(object sender, EventArgs e)
         {
             CheckEnabledDays();
-            MessagingCenter.Send(this, "AddAlarm", alarm);
+            Alarm.Time = TimeSpan.ParseExact(Alarm.Time.ToString(), @"hh\:mm\:ss", CultureInfo.InvariantCulture);
+
+            //alarm.Time = new TimeSpan();
+            
+            MessagingCenter.Send(this, "AddAlarm", Alarm);
             await Navigation.PopModalAsync();
         }
 
@@ -54,7 +59,7 @@ namespace IOTMobileApp.Views
                 daysList.Add(WeekDays.Saturday);
             if (SundayCheckbox.IsChecked)
                 daysList.Add(WeekDays.Sunday);
-            alarm.DaysOfWeek = daysList;
+            Alarm.DaysOfWeek = daysList;
         }
     }
 }
