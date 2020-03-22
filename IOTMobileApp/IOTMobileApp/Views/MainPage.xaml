@@ -18,6 +18,17 @@
                 <views:ItemsPage />
             </x:Arguments>
         </NavigationPage>
+
+         <NavigationPage Title="Будильник">
+            <NavigationPage.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="iOS" Value="alarm.png"/>
+                </OnPlatform>
+            </NavigationPage.Icon>
+            <x:Arguments>
+                <views:AlarmsPage />
+            </x:Arguments>
+        </NavigationPage>
         
         <NavigationPage Title="Налаштування">
             <NavigationPage.Icon>
@@ -29,16 +40,7 @@
                 <views:BrightPage />
             </x:Arguments>
         </NavigationPage>
-         <NavigationPage Title="Будильник">
-            <NavigationPage.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="iOS" Value="alarm.png"/>
-                </OnPlatform>
-            </NavigationPage.Icon>
-            <x:Arguments>
-                <views:AlarmsPage />
-            </x:Arguments>
-        </NavigationPage>
+        
          <NavigationPage Title="Нічник">
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">

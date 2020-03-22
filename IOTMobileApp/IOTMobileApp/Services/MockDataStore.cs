@@ -14,10 +14,10 @@ namespace IOTMobileApp.Services
         {
             items = new List<Item>()
             {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Мерехтіння", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Переходи", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Монотонний", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Випадкові ефекти", Description="This is an item description." },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Годинник", Description="Відображпти поточний час" },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Анімація", Description="Ввімкнути світлову анімацію" },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Секундомір", Description="Почати відлік секундоміра." },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Термометр", Description="Показати температуру" },
             };
         }
 

@@ -13,25 +13,15 @@
     </ContentPage.ToolbarItems> -->
 
     <StackLayout>
-        <ListView x:Name="ItemsListView"
+        <!--<ListView x:Name="ItemsListView"
                 ItemsSource="{Binding Items}"
                 VerticalOptions="FillAndExpand"
                 HasUnevenRows="true"
                 RefreshCommand="{Binding LoadItemsCommand}"
                 IsPullToRefreshEnabled="true"
                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                CachingStrategy="RecycleElement"
-                ItemSelected="OnItemSelected">
-            <d:ListView.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>First Item</x:String>
-                    <x:String>Second Item</x:String>
-                    <x:String>Third Item</x:String>
-                    <x:String>Fourth Item</x:String>
-                    <x:String>Fifth Item</x:String>
-                    <x:String>Sixth Item</x:String>
-                </x:Array>
-            </d:ListView.ItemsSource>
+                CachingStrategy="RecycleElement">
+      
             <ListView.ItemTemplate>
                 
                 <DataTemplate>
@@ -46,10 +36,10 @@
                                 d:Text="{Binding .}"
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16"
+                                FontSize="25"
                                    Grid.Row="0"
                                    Grid.Column="0"/>
-                              <Switch Grid.Row="0" Grid.Column="1" VerticalOptions="Start" x:Name="swRekorida"/>
+                              <Switch Grid.Row="0" Grid.Column="1" VerticalOptions="Start" x:Name="swRekorida" Margin="0, 8, 0, 0"/>
                             </Grid>
                             
                             <Label Text="{Binding Description}" 
@@ -61,7 +51,133 @@
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>
+        </ListView>-->
+
+       
+
+                    
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="2*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                             <Label Text="Годинник"
+                                    TextColor="DarkSlateGray"
+                                    Padding="15, 15, 15, 0"
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="25"
+                                    FontAttributes="Bold"
+                                    Grid.Row="0"
+                                    Grid.Column="0"/>
+
+                                <Switch 
+                                      Grid.Column="1"
+                                      x:Name="ClokSwitch"
+                                      Grid.RowSpan="2"
+                                      Toggled="ClokSwitch_Toggled"
+                                      VerticalOptions="Center"/>
+                           
+                            
+                            <Label Text="Відображати поточний час"
+                                   Grid.Row="1"
+                                   TextColor="DarkSlateGray"
+                                    LineBreakMode="NoWrap"
+                                    Style="{DynamicResource ListItemDetailTextStyle}"
+                                    Padding="15,0"
+                                    FontSize="16" />
+                                      
+                            </Grid>
+                            <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Gray"/>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="2*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                             <Label Text="Анімація"
+                                    TextColor="DarkSlateGray"
+                                    Padding="15, 15, 15, 0"
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="25"
+                                    FontAttributes="Bold"
+                                    Grid.Row="0"
+                                    Grid.Column="0"/>
+
+                                <Switch 
+                                      Grid.Column="1"
+                                      x:Name="AnimationSwitch"
+                                      Grid.RowSpan="2"
+                                      Toggled="AnimationSwitch_Toggled"
+                                      VerticalOptions="Center"/>
+                           
+                            
+                            <Label Text="Ввімкнути світлову анімацію"
+                                   Grid.Row="1"
+                                   TextColor="DarkSlateGray"
+                                    LineBreakMode="NoWrap"
+                                    Style="{DynamicResource ListItemDetailTextStyle}"
+                                    Padding="15,0"
+                                    FontSize="16" />
+                                      
+                            </Grid>
+                            <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Gray"/>
+
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="2*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                             <Label Text="Термометр"
+                                    TextColor="DarkSlateGray"
+                                    Padding="15, 15, 15, 0"
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="25"
+                                    FontAttributes="Bold"
+                                    Grid.Row="0"
+                                    Grid.Column="0"/>
+
+                                <Switch 
+                                      Grid.Column="1"
+                                      x:Name="TempSwitch"
+                                      Grid.RowSpan="2"
+                                      Toggled="TempSwitch_Toggled"
+                                      VerticalOptions="Center"/>
+                           
+                            
+                            <Label Text="Відображати поточну температуру"
+                                   Grid.Row="1"
+                                   TextColor="DarkSlateGray"
+                                    LineBreakMode="NoWrap"
+                                    Style="{DynamicResource ListItemDetailTextStyle}"
+                                    Padding="15,0"
+                                    FontSize="16" />
+                                      
+                            </Grid>
+                            <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Gray"/>
+
+
+                            
+                      
+
+
     </StackLayout>
+
+
 
 </ContentPage>

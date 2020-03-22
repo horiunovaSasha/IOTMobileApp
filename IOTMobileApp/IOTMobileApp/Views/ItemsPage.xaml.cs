@@ -29,14 +29,14 @@ namespace IOTMobileApp.Views
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            var item = args.SelectedItem as Item;
-            if (item == null)
-                return;
+            //var item = args.SelectedItem as Item;
+            //if (item == null)
+            //    return;
 
-            await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
+            //await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
 
-            // Manually deselect item.
-            ItemsListView.SelectedItem = null;
+            //// Manually deselect item.
+            //ItemsListView.SelectedItem = null;
         }
 
         async void AddItem_Clicked(object sender, EventArgs e)
@@ -50,6 +50,21 @@ namespace IOTMobileApp.Views
 
             if (viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
+        }
+
+        void ClokSwitch_Toggled(System.Object sender, Xamarin.Forms.ToggledEventArgs e)
+        {
+             DisplayAlert("Clock","Clock switched", "Cancel" );
+        }
+
+        void AnimationSwitch_Toggled(System.Object sender, Xamarin.Forms.ToggledEventArgs e)
+        {
+            DisplayAlert("Animation", "Animation switched", "Cancel");
+        }
+
+        void TempSwitch_Toggled(System.Object sender, Xamarin.Forms.ToggledEventArgs e)
+        {
+            DisplayAlert("Temp", "Temp switched", "Cancel");
         }
     }
 }
