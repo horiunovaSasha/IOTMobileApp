@@ -26,15 +26,15 @@ namespace IOTMobileApp.iOS
             ServicePointManager
                 .ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
 
-            UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB(99, 114, 119); //bar background
+            UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB(223,27, 61); //bar background
             UINavigationBar.Appearance.TintColor = UIColor.White; //Tint color of button items
             UINavigationBar.Appearance.SetTitleTextAttributes(new UITextAttributes()
             {
                 Font = UIFont.FromName("HelveticaNeue-Light", (nfloat)20f),
                 TextColor = UIColor.White
             });
-            UINavigationBar.Appearance.BackgroundColor = UIColor.Magenta;
-
+            UINavigationBar.Appearance.BackgroundColor = UIColor.FromRGB(223, 27, 61);
+           
             global::Xamarin.Forms.Forms.Init();
             var dbName = "homeKit.sqlite";
             var folderName = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal),"..", "Library");

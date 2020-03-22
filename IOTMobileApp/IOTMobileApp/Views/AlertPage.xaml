@@ -2,11 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:cardView="clr-namespace:CardView;assembly=CardView"
              mc:Ignorable="d"
              x:Class="IOTMobileApp.Views.AlertPage"
              Title="Сигналізація">
-    <StackLayout>
+    <!--<StackLayout>
          <Label
                 Text="Ви можкте ввімкнути дачик руху і отримувати сповіщення якщо буде виявлено рух"
            
@@ -37,10 +37,37 @@
                                    Grid.Row="0"
                                    Grid.Column="0"/>
                               <Switch Grid.Row="0" Grid.Column="2" VerticalOptions="Start" Margin="0,5"/>
-            
+           
                  </Grid>
-    </StackLayout>
-    
+
+    </StackLayout>-->
+   
+        <StackLayout Padding="20" Margin="5">
+            <cardView:CardView
+                CardViewHeightRequest="100"
+                CardViewOutlineColorThickness="2"
+                CardViewHasShadow="True"
+                CardViewInnerFrameOutlineColor="Aqua">
+                <cardView:CardView.CardViewContent>
+                    <StackLayout  BackgroundColor="White">
+                        <Label Text="Gray Outline Color with Shadow ray Outline Color with Shadow"></Label>
+                    </StackLayout>
+                </cardView:CardView.CardViewContent>
+            </cardView:CardView>
+        </StackLayout>
+
+    <!--<StackLayout>
+
+         <Frame WidthRequest="684" HeightRequest="260" HasShadow="true" BackgroundColor="#FFFFFFFF">
+             <Label Text="Gotham City Police Department" FontFamily="Lato#400" FontSize="32" FontAttributes="None" TextColor="#FF363636" />
+             <Label Text="5 minutes ago   •   4 members" FontFamily="Lato#400" FontSize="24" FontAttributes="None" TextColor="#FFB9B9B9" />
+</Frame>
+
+<StackLayout WidthRequest="684" HeightRequest="260" BackgroundColor="#FFFFFFFF">
+</StackLayout>
+
+    </StackLayout>-->
+   
 
 </ContentPage>
 
