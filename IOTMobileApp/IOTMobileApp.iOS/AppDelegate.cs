@@ -4,7 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using Foundation;
+using RealSimpleCircle.iOS;
 using UIKit;
+using Xamarin.Forms;
 
 namespace IOTMobileApp.iOS
 {
@@ -23,6 +25,9 @@ namespace IOTMobileApp.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            global::Xamarin.Forms.Forms.SetFlags("SwipeView_Experimental");
+            //Forms.SetFlags("SwipeView_Experimental");
+
             ServicePointManager
                 .ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
 
@@ -34,8 +39,10 @@ namespace IOTMobileApp.iOS
                 TextColor = UIColor.White
             });
             UINavigationBar.Appearance.BackgroundColor = UIColor.FromRGB(223, 27, 61);
-           
-            global::Xamarin.Forms.Forms.Init();
+
+            global::Xamarin.Forms.Forms.Init(); 
+            CircleRenderer.Init();
+
             var dbName = "homeKit.sqlite";
             var folderName = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal),"..", "Library");
             var fullPath = Path.Combine(folderName, dbName);

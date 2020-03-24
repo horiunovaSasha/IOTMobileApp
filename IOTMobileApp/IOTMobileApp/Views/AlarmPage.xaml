@@ -21,11 +21,15 @@
                   IsPullToRefreshEnabled="true"
                   IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                   CachingStrategy="RecycleElement"
-                  ItemSelected="OnItemSelected">
+                  ItemSelected="OnItemSelected"
+                  Footer="">
 
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Delete" IsDestructive="True" Clicked="MenuItem_Clicked" CommandParameter="{Binding Id}" Command="{Binding DeleteCommand}" />
+                        </ViewCell.ContextActions>
                         <StackLayout Padding="10">
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -35,14 +39,14 @@
                                 <Label Text="{Binding Time , StringFormat='{}{0:hh\\:mm}'}" 
                                 d:Text="{Binding .}"
                                 LineBreakMode="NoWrap" 
-                                Margin=" 5, 0"
+                                Margin=" 15, 0, 15, 0"
                                 FontSize="35"
                                    Grid.Row="0"
                                    Grid.Column="0"/>
                                 <Label Text="{Binding DisplaDaysSting}"  
                                 d:Text="{Binding .}"
                                 LineBreakMode="NoWrap" 
-                                Margin=" 5"
+                                Margin=" 15, 0, 5, 0"
                                 FontSize="16"
                                    Grid.Row="1"
                                    Grid.Column="0"/>

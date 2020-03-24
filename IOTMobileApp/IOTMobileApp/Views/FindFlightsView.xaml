@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:controls="clr-namespace:RealSimpleCircle.Abstractions;assembly=RealSimpleCircle.Abstractions"
+             
+             mc:Ignorable="d"
+             x:Class="IOTMobileApp.Views.FindFlightsView">
+   <ContentPage.Resources>
+        <ResourceDictionary>
+            
+             COLORS 
+            <Color x:Key="WhiteColor">#FFFFFF</Color>
+            <Color x:Key="BlackColor">#000000</Color>
+            <Color x:Key="BackgroundColor">#F6F4FC</Color>
+            <Color x:Key="AccentColor">#63C3F1</Color>
+            
+             FONTS 
+            <OnPlatform x:Key="SourceSansProRegular"
+                        x:TypeArguments="x:String"
+                        iOS="SourceSansPro-Regular"
+                        Android="SourceSansPro-Regular.ttf#Source Sans Pro"/>
+            
+             STYLES 
+            <Style x:Key="HeaderTitleStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+                <Setter Property="FontFamily" Value="{StaticResource SourceSansProRegular}" />
+                <Setter Property="FontSize" Value="Title"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            
+            <Style x:Key="HeaderDateStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+                <Setter Property="FontFamily" Value="{StaticResource SourceSansProRegular}" />
+                <Setter Property="FontSize" Value="Micro"/>
+                <Setter Property="Opacity" Value="0.75"/>
+            </Style>
+
+            <Style x:Key="HeaderStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource BlackColor}" />
+                <Setter Property="FontFamily" Value="{StaticResource SourceSansProRegular}" />
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+
+            <Style x:Key="Header2Style" TargetType="Label">
+                <Setter Property="TextColor" Value="DarkGray" />
+                <Setter Property="FontFamily" Value="{StaticResource SourceSansProRegular}" />
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+
+            <Style x:Key="TextStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="DarkGray" />
+                <Setter Property="FontFamily" Value="{StaticResource SourceSansProRegular}" />
+                <Setter Property="FontSize" Value="Micro"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+          
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <pancakeview:PancakeView
+           BackgroundColor="{StaticResource BackgroundColor}"
+           CornerRadius="12, 12, 0, 0">
+         <StackLayout Margin="12, 5">
+            <pancakeview:PancakeView
+                                            BackgroundColor="{StaticResource WhiteColor}"
+                                            CornerRadius="6"
+                                            Padding="12">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                      <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid
+                                                    Grid.Row="0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="100" />
+                                                        <ColumnDefinition Width="24" />
+                                                        <ColumnDefinition Width="20" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label 
+                                                        Grid.Column="0"
+                                                        Text="Колір Тексту"
+                                                        Style="{StaticResource HeaderStyle}"/>
+                                                    <Image 
+                                                            Grid.Column="1"
+                                                            Aspect="AspectFit"
+                                                            Source="clock.png"
+                                                            WidthRequest="24"
+                                                            VerticalOptions="Center"/>
+                                                     <Frame Grid.Column="2" HeightRequest="20" VerticalOptions="End" WidthRequest="40" HorizontalOptions="Start" CornerRadius="20"  Margin="0" Padding="0" BackgroundColor="Maroon"/>
+                                                </Grid>
+                                                <Grid Grid.Row="1">
+                                                   
+                                                    <Label 
+                                                        Grid.Column="0"
+                                                        Text="Прокрутіть список вліво або вправо для перегляду усіх можливих кольорів і виберіть необхідний"
+                                                        Style="{StaticResource Header2Style}"/>
+                                                </Grid>
+                                                <Grid Grid.Row="2" Padding="0, 10">
+                                                 <Grid.ColumnDefinitions>
+                                                     <ColumnDefinition Width="40"/>
+                                                     <ColumnDefinition Width="40"/>
+                                                     <ColumnDefinition Width="40"/>
+                                                     <ColumnDefinition Width="40"/>
+                                                     <ColumnDefinition Width="40"/>
+                                                     <ColumnDefinition Width="40"/>
+                                                     <ColumnDefinition Width="40"/>
+                                                     <ColumnDefinition Width="40"/>
+
+                                                 </Grid.ColumnDefinitions>
+                                                    
+                                                    <Frame Grid.Column="0" HeightRequest="40"  WidthRequest="40" HorizontalOptions="Start" CornerRadius="20"  Margin="0" Padding="0" BackgroundColor="Maroon"/>
+                                                    <Frame Grid.Column="1" HeightRequest="40"  WidthRequest="40" HorizontalOptions="Start" CornerRadius="20"  Margin="0" Padding="0" BackgroundColor="Green"/>
+                                                    <Frame Grid.Column="2" HeightRequest="40"  WidthRequest="40" HorizontalOptions="Start" CornerRadius="20"  Margin="0" Padding="0" BackgroundColor="Red"/>
+                                                    <Frame Grid.Column="3" HeightRequest="40"  WidthRequest="40" HorizontalOptions="Start" CornerRadius="20"  Margin="0" Padding="0" BackgroundColor="Yellow"/>
+                                                    <Frame Grid.Column="4" HeightRequest="40"  WidthRequest="40" HorizontalOptions="Start" CornerRadius="20"  Margin="0" Padding="0" BackgroundColor="Blue"/>
+                                                    <Frame Grid.Column="5" HeightRequest="40"  WidthRequest="40" HorizontalOptions="Start" CornerRadius="20"  Margin="0" Padding="0" BackgroundColor="Pink"/>
+                                                    <Frame Grid.Column="6" HeightRequest="40"  WidthRequest="40" HorizontalOptions="Start" CornerRadius="20"  Margin="0" Padding="0" BackgroundColor="Orange"/>
+                                                    <Frame Grid.Column="7" HeightRequest="40"  WidthRequest="40" HorizontalOptions="Start" CornerRadius="20"  Margin="0" Padding="0" BackgroundColor="ligh"/>
+                                                 
+                                                     <!--<controls:Circle FillColor="Black" StrokeColor="Red" Active="True" />-->
+                                                   <!--<FlexLayout >
+                                                       <CarouselView HeightRequest="20" PeekAreaInsets="10">
+                                                            <CarouselView.ItemsSource>
+                                                                <x:Array Type="{x:Type x:String}">
+                                                                    <x:String>Reeed</x:String>
+                                                                    <x:String>Greeen</x:String>
+                                                                    <x:String>B</x:String>
+                                                                    <x:String>Y</x:String>
+                                                                </x:Array>
+                                                            </CarouselView.ItemsSource>
+  
+                                                        </CarouselView>
+
+                                                   </FlexLayout>-->
+                                                  
+                                                  
+
+
+
+                                                </Grid>
+                                            </Grid>
+                                        </pancakeview:PancakeView>
+            <pancakeview:PancakeView
+                                            BackgroundColor="{StaticResource WhiteColor}"
+                                            CornerRadius="6"
+                                            Padding="12">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid
+                                                    Grid.Row="0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="24" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="80" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Image 
+                                                        Grid.Column="0"
+                                                        Aspect="AspectFit"
+                                                        Source="singapore.png"/>
+                                                    <Label 
+                                                        Grid.Column="1"
+                                                        Text="Some text"
+                                                        Style="{StaticResource HeaderStyle}"/>
+                                                    <Grid
+                                                        Grid.Column="2"  
+                                                        HeightRequest="24"
+                                                        HorizontalOptions="End">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto" />
+                                                            <ColumnDefinition Width="Auto" />
+                                                        </Grid.ColumnDefinitions>
+                                                        <Label 
+                                                            Grid.Column="0"
+                                                            Text="Some text"
+                                                            Style="{StaticResource HeaderStyle}"/>
+                                                        <Image 
+                                                            Grid.Column="1"
+                                                            Aspect="AspectFit"
+                                                            Source="right_arrow.png"
+                                                            WidthRequest="24"
+                                                            VerticalOptions="Center"/>
+                                                    </Grid>
+                                                </Grid>
+                                                <Grid
+                                                    Grid.Row="1">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="100" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="100" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label 
+                                                        Grid.Column="0"
+                                                        Text="Departure"
+                                                        Style="{StaticResource Header2Style}"/>
+                                                    <Label 
+                                                        Grid.Column="2"
+                                                        Text="Arrive"
+                                                        HorizontalOptions="End"
+                                                        Style="{StaticResource Header2Style}"/>
+                                                </Grid>
+                                              
+                                            </Grid>
+                                        </pancakeview:PancakeView>
+            <pancakeview:PancakeView
+                                            BackgroundColor="{StaticResource WhiteColor}"
+                                            CornerRadius="6"
+                                            Padding="12">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid
+                                                    Grid.Row="0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="24" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="80" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Image 
+                                                        Grid.Column="0"
+                                                        Aspect="AspectFit"
+                                                        Source="singapore.png"/>
+                                                    <Label 
+                                                        Grid.Column="1"
+                                                        Text="Some text"
+                                                        Style="{StaticResource HeaderStyle}"/>
+                                                    <Grid
+                                                        Grid.Column="2"  
+                                                        HeightRequest="24"
+                                                        HorizontalOptions="End">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto" />
+                                                            <ColumnDefinition Width="Auto" />
+                                                        </Grid.ColumnDefinitions>
+                                                        <Label 
+                                                            Grid.Column="0"
+                                                            Text="Some text"
+                                                            Style="{StaticResource HeaderStyle}"/>
+                                                        <Image 
+                                                            Grid.Column="1"
+                                                            Aspect="AspectFit"
+                                                            Source="right_arrow.png"
+                                                            WidthRequest="24"
+                                                            VerticalOptions="Center"/>
+                                                    </Grid>
+                                                </Grid>
+                                                <Grid
+                                                    Grid.Row="1">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="100" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="100" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label 
+                                                        Grid.Column="0"
+                                                        Text="Departure"
+                                                        Style="{StaticResource Header2Style}"/>
+                                                    <Label 
+                                                        Grid.Column="2"
+                                                        Text="Arrive"
+                                                        HorizontalOptions="End"
+                                                        Style="{StaticResource Header2Style}"/>
+                                                </Grid>
+                                              
+                                            </Grid>
+                                        </pancakeview:PancakeView>
+            <pancakeview:PancakeView
+                                            BackgroundColor="{StaticResource WhiteColor}"
+                                            CornerRadius="6"
+                                            Padding="12">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid
+                                                    Grid.Row="0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="24" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="80" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Image 
+                                                        Grid.Column="0"
+                                                        Aspect="AspectFit"
+                                                        Source="singapore.png"/>
+                                                    <Label 
+                                                        Grid.Column="1"
+                                                        Text="Some text"
+                                                        Style="{StaticResource HeaderStyle}"/>
+                                                    <Grid
+                                                        Grid.Column="2"  
+                                                        HeightRequest="24"
+                                                        HorizontalOptions="End">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto" />
+                                                            <ColumnDefinition Width="Auto" />
+                                                        </Grid.ColumnDefinitions>
+                                                        <Label 
+                                                            Grid.Column="0"
+                                                            Text="Some text"
+                                                            Style="{StaticResource HeaderStyle}"/>
+                                                        <Image 
+                                                            Grid.Column="1"
+                                                            Aspect="AspectFit"
+                                                            Source="right_arrow.png"
+                                                            WidthRequest="24"
+                                                            VerticalOptions="Center"/>
+                                                    </Grid>
+                                                </Grid>
+                                                <Grid
+                                                    Grid.Row="1">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="100" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="100" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label 
+                                                        Grid.Column="0"
+                                                        Text="Departure"
+                                                        Style="{StaticResource Header2Style}"/>
+                                                    <Label 
+                                                        Grid.Column="2"
+                                                        Text="Arrive"
+                                                        HorizontalOptions="End"
+                                                        Style="{StaticResource Header2Style}"/>
+                                                </Grid>
+                                              
+                                            </Grid>
+                                        </pancakeview:PancakeView>
+          </StackLayout>
+        </pancakeview:PancakeView>
+
+            
+    
+    </ContentPage.Content>
+</ContentPage>

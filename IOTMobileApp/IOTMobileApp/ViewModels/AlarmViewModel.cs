@@ -15,6 +15,8 @@ namespace IOTMobileApp.ViewModels
         public ObservableCollection<Alarm> Alarms { get; set; }
         public Command LoadItemsCommand { get; set; }
 
+       
+
         public AlarmViewModel()
         {
             Title = "Будильники";
@@ -49,6 +51,28 @@ namespace IOTMobileApp.ViewModels
                 {
                     Alarms.Add(item);
                 }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        public async Task Delete(int id)
+        {
+            if (IsBusy)
+                return;
+
+            IsBusy = true;
+
+            try
+            {
+                await AlarmDataStore.DeleteAlarmAsync(id);
+               
             }
             catch (Exception ex)
             {

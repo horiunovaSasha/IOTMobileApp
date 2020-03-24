@@ -67,7 +67,7 @@
                                 </Grid.RowDefinitions>
                              <Label Text="Годинник"
                                     TextColor="DarkSlateGray"
-                                    Padding="15, 15, 15, 0"
+                                    Padding="15, 15, 15, 15"
                                     LineBreakMode="NoWrap" 
                                     Style="{DynamicResource ListItemTextStyle}" 
                                     FontSize="25"
@@ -105,7 +105,7 @@
                                 </Grid.RowDefinitions>
                              <Label Text="Анімація"
                                     TextColor="DarkSlateGray"
-                                    Padding="15, 15, 15, 0"
+                                    Padding="15, 15, 15, 15"
                                     LineBreakMode="NoWrap" 
                                     Style="{DynamicResource ListItemTextStyle}" 
                                     FontSize="25"
@@ -144,7 +144,7 @@
                                 </Grid.RowDefinitions>
                              <Label Text="Термометр"
                                     TextColor="DarkSlateGray"
-                                    Padding="15, 15, 15, 0"
+                                    Padding="15, 15, 15, 15"
                                     LineBreakMode="NoWrap" 
                                     Style="{DynamicResource ListItemTextStyle}" 
                                     FontSize="25"

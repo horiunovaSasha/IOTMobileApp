@@ -18,6 +18,7 @@ namespace IOTMobileApp.Views
             this.BarTextColor = Color.FromHex("#efc7d0"); 
             this.SelectedTabColor = Color.FromHex("#f9e03c");
             this.UnselectedTabColor = Color.White;
+           
 
         }
     }

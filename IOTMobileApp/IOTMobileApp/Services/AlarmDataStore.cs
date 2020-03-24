@@ -41,8 +41,9 @@ namespace IOTMobileApp.Services
             if (rows > 0)
             {
                 return await Task.FromResult(true);
+                alarms = GetAlarmsAsync(false).Result.ToList();
             }
-            alarms = GetAlarmsAsync(false).Result.ToList();
+            
             //var oldItem = alarms.FirstOrDefault((arg) => arg.Id == alarm.Id);
             //alarms.Remove(oldItem);
             //alarms.Add(alarm);
@@ -52,10 +53,23 @@ namespace IOTMobileApp.Services
 
         public async Task<bool> DeleteAlarmAsync(int id)
         {
-            var oldItem = alarms.FirstOrDefault(arg => arg.Id == id);
-            alarms.Remove(oldItem);
+            //var oldItem = alarms.FirstOrDefault(arg => arg.Id == id);
+            //alarms.Remove(oldItem);
 
-            return await Task.FromResult(true);
+            //return await Task.FromResult(true);
+
+            var connection = new SQLiteConnection(App.DatabaseLocalion);
+            connection.CreateTable<Alarm>();
+            var itemToDelete = alarms.FirstOrDefault(x => x.Id == id);
+            var rows = connection.Delete(itemToDelete);
+
+            if (rows > 0)
+            {
+                alarms = GetAlarmsAsync(false).Result.ToList();
+                return await Task.FromResult(true);
+            }
+           
+            return await Task.FromResult(false);
         }
 
         public async Task<Alarm> GetAlarmAsync(int id)
@@ -83,15 +97,18 @@ namespace IOTMobileApp.Services
                 if (!string.IsNullOrEmpty(alarm.SerializedDays))
                 {
                     var days = alarm.SerializedDays.Replace('[', ' ').Replace(']', ' ').Trim().Split(',').ToList();
-                    foreach (var day in days)
+                    if (days.Count() > 1)
                     {
-                        alarm.DisplaDaysSting += $"{GetShortDay(day)} ";
+                        foreach (var day in days)
+                        {
+                            alarm.DisplaDaysSting += $"{GetShortDay(day)} ";
+                        }
                     }
-
-                }
-                else
-                {
-                    alarm.DisplaDaysSting += "не встановлено";
+                    else
+                    {
+                        alarm.DisplaDaysSting += "не встановлено";
+                    }
+                    
                 }
             }
         }

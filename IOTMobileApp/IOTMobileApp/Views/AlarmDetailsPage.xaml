@@ -7,39 +7,24 @@
              x:Class="IOTMobileApp.Views.AlarmDetailsPage"
              Title="Новий будильник">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Скасувати" Clicked="Cancel_Clicked" />
-        <ToolbarItem Text="Зберегти" Clicked="Save_Clicked" />
+     <ContentPage.ToolbarItems>
+        <ToolbarItem Text="X" Clicked="Cancel_Clicked" />
+        <ToolbarItem Text="V" Clicked="Save_Clicked" />
     </ContentPage.ToolbarItems>
-
+    
     <ContentPage.Content>
-        <!--<StackLayout Spacing="20" Padding="15">
-            <Label Text="Змінити час" FontSize="Medium" />
-            --><!--<Entry Text="{Binding Item.Time}" d:Text="Час" FontSize="Small" />--><!--
-            <TimePicker Time="{Binding Alarm.Time}" />
-            --><!--<Label Text="Description" FontSize="Medium" />
-            <Editor Text="{Binding Item.Description}" d:Text="Item description" FontSize="Small" Margin="0" />--><!--
-        </StackLayout>-->
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="4*"/>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <BoxView  Grid.Column="0" Margin="15, 0"/>
+        <StackLayout Padding="15">
 
-            <Label 
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                
+                <BoxView  Grid.Column="0" Margin="15, 0"/>
+
+                <Label 
                     Grid.Row="0" 
                     Text="Виберіть час:" 
                     FontSize="Large"
@@ -47,37 +32,141 @@
                     Margin="2, 15"
                     TextColor="Gray"
                 />
-            <TimePicker Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="0" Time="{Binding Alarm.Time}" />
-            <Label 
-                    Grid.Row="1" 
-                    Text="Виберіть дні:" 
+                    <TimePicker Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="0" Time="{Binding Alarm.Time}" />
+                </Grid>
+            <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Gray" Margin="0, 15, 0, 0"/>
+                <Label 
+                    
+                    Text="Повтор:" 
                     FontSize="Large"
                     HorizontalTextAlignment="Start"
                     Margin="0, 5"
                     TextColor="Gray"
                     
                 />
-            <Label Grid.Row="2" Grid.Column="0"  Text="Понеділок" FontSize="Medium" />
-            <CheckBox Grid.Row="2" Grid.Column="2" x:Name="MondaynCheckbox" />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                           
+                             <Label Text="Понеділок" TextColor="DarkSlateGray" Padding="15, 0, 15, 0" LineBreakMode="NoWrap" VerticalOptions="Center" FontSize="15" FontAttributes="Bold"
+                                    Grid.Row="0"
+                                    Grid.Column="0"/>
+                                
+                                <CheckBox 
+                                      Grid.Column="1"
+                                      x:Name="MondaynCheckbox"
+                                     VerticalOptions="Center"/>
+                            </Grid>
+                            <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="LightGray"/>
 
-            <Label Grid.Row="3" Grid.Column="0" Text="Вівторок" FontSize="Medium" />
-            <CheckBox Grid.Row="3" Grid.Column="2" x:Name="TuesdayCheckbox" />
+                             <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                           
+                             <Label Text="Вівторок" TextColor="DarkSlateGray" Padding="15, 0, 15, 0" LineBreakMode="NoWrap" VerticalOptions="Center" FontSize="15" FontAttributes="Bold"
+                                    Grid.Row="0"
+                                    Grid.Column="0"/>
+                                
+                                <CheckBox 
+                                      Grid.Column="1"
+                                    x:Name="TuesdayCheckbox"
+                                     VerticalOptions="Center"/>
+                            </Grid>
+                            <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="LightGray"/>
 
-            <Label Grid.Row="4" Grid.Column="0" Text="Середа" FontSize="Medium" />
-            <CheckBox Grid.Row="4" Grid.Column="2" x:Name="WednesdayCheckbox" />
+                    <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                           
+                             <Label Text="Середа" TextColor="DarkSlateGray" Padding="15, 0, 15, 0" LineBreakMode="NoWrap" VerticalOptions="Center" FontSize="15" FontAttributes="Bold"
+                                    Grid.Row="0"
+                                    Grid.Column="0"/>
+                                
+                                <CheckBox 
+                                      Grid.Column="1"
+                                    x:Name="WednesdayCheckbox"
+                                     VerticalOptions="Center"/>
+                            </Grid>
+                            <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="LightGray"/>
 
-            <Label Grid.Row="5" Grid.Column="0" Text="Четвер" FontSize="Medium" />
-            <CheckBox Grid.Row="5" Grid.Column="2" x:Name="ThursdayCheckbox" />
+            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                           
+                             <Label Text="Четвер" TextColor="DarkSlateGray" Padding="15, 0, 15, 0" LineBreakMode="NoWrap" VerticalOptions="Center" FontSize="15" FontAttributes="Bold"
+                                    Grid.Row="0"
+                                    Grid.Column="0"/>
+                                
+                                <CheckBox 
+                                      Grid.Column="1"
+                                       x:Name="ThursdayCheckbox"
+                                     VerticalOptions="Center"/>
+                            </Grid>
+                            <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="LightGray"/>
 
-            <Label  Grid.Row="6" Grid.Column="0" Text="П'ятниця" FontSize="Medium" />
-            <CheckBox Grid.Row="6" Grid.Column="2" x:Name="FridayCheckbox" />
+            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                           
+                             <Label Text="П'ятниця" TextColor="DarkSlateGray" Padding="15, 0, 15, 0" LineBreakMode="NoWrap" VerticalOptions="Center" FontSize="15" FontAttributes="Bold"
+                                    Grid.Row="0"
+                                    Grid.Column="0"/>
+                                
+                                <CheckBox 
+                                      Grid.Column="1"
+                                     x:Name="FridayCheckbox"
+                                     VerticalOptions="Center"/>
+                            </Grid>
+                            <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="LightGray"/>
 
-            <Label Grid.Row="7" Grid.Column="0" Text="Субота" FontSize="Medium" />
-            <CheckBox Grid.Row="7" Grid.Column="2" x:Name="SaturdayCheckbox" />
+            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                           
+                             <Label Text="Субота" TextColor="DarkSlateGray" Padding="15, 0, 15, 0" LineBreakMode="NoWrap" VerticalOptions="Center" FontSize="15" FontAttributes="Bold"
+                                    Grid.Row="0"
+                                    Grid.Column="0"/>
+                                
+                                <CheckBox 
+                                      Grid.Column="1"
+                                     x:Name="SaturdayCheckbox"
+                                     VerticalOptions="Center"/>
+                            </Grid>
+                            <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="LightGray"/>
 
-            <Label Grid.Row="8" Grid.Column="0" Text="Неділя" FontSize="Medium" />
-            <CheckBox Grid.Row="8" Grid.Column="2" x:Name="SundayCheckbox" />
-        </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                           
+                             <Label Text="Неділя" TextColor="DarkSlateGray" Padding="15, 0, 15, 0" LineBreakMode="NoWrap"  FontSize="15" FontAttributes="Bold" VerticalOptions="Center"
+                                    Grid.Row="0"
+                                    Grid.Column="0"/>
+                                
+                                <CheckBox 
+                                      Grid.Column="1"
+                                      x:Name="SundayCheckbox"
+                                     VerticalOptions="Center"/>
+                            </Grid>
+                            <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="LightGray"/>
+
+
+
+
+        </StackLayout>
     </ContentPage.Content>
 
 </ContentPage>

@@ -58,7 +58,7 @@
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>
-                <views:AlertPage />
+                <views:FindFlightsView />
             </x:Arguments>
         </NavigationPage>
     </TabbedPage.Children>

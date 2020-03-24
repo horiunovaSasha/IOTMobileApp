@@ -25,6 +25,7 @@ namespace IOTMobileApp.Views
             InitializeComponent();
 
             BindingContext = viewModel = new AlarmViewModel();
+
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
@@ -42,6 +43,15 @@ namespace IOTMobileApp.Views
         async void AddItem_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new NewAlarmPage()));
+        }
+
+        async void MenuItem_Clicked(object sender, EventArgs e)
+        {
+            var item = (Xamarin.Forms.MenuItem)sender;
+            var alarmId = int.Parse(item.CommandParameter.ToString());
+            await viewModel.Delete(alarmId);
+            viewModel.LoadItemsCommand.Execute(null);
+
         }
 
         protected override void OnAppearing()

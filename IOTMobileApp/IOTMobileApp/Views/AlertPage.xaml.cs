@@ -9,6 +9,7 @@ namespace IOTMobileApp.Views
         public AlertPage()
         {
             InitializeComponent();
+
         }
     }
 }

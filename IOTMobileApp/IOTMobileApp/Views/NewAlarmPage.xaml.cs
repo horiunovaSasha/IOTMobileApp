@@ -41,7 +41,7 @@ namespace IOTMobileApp.Views
             await Navigation.PopModalAsync();
         }
 
-        private void CheckEnabledDays() 
+        private void CheckEnabledDays()
         {
             var daysList = new List<WeekDays>();
 

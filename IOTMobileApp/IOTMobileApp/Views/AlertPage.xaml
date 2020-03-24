@@ -54,7 +54,17 @@
                     </StackLayout>
                 </cardView:CardView.CardViewContent>
             </cardView:CardView>
+
+            <BoxView Color="Teal">
+             
+    <BoxView.GestureRecognizers>
+        
+        <SwipeGestureRecognizer Direction="Left" />
+    </BoxView.GestureRecognizers>
+</BoxView>
+
         </StackLayout>
+
 
     <!--<StackLayout>
 
