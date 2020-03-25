@@ -42,7 +42,7 @@
 
     </StackLayout>-->
    
-        <StackLayout Padding="20" Margin="5">
+        <!--<StackLayout Padding="20" Margin="5">
             <cardView:CardView
                 CardViewHeightRequest="100"
                 CardViewOutlineColorThickness="2"
@@ -63,7 +63,7 @@
     </BoxView.GestureRecognizers>
 </BoxView>
 
-        </StackLayout>
+        </StackLayout>-->
 
 
     <!--<StackLayout>
