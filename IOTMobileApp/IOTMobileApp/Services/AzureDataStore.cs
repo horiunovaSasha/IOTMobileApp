@@ -80,5 +80,10 @@ namespace IOTMobileApp.Services
 
             return response.IsSuccessStatusCode;
         }
+
+        public List<Colour> GetColours()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

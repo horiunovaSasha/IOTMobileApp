@@ -114,7 +114,7 @@
                         </Grid.RowDefinitions>
                                                    
                         <Label Grid.Column="0" FontSize="17" Text="Колір Тексту" Style="{StaticResource HeaderStyle}"/>
-                        <Frame Grid.Column="1" Grid.Row="0" HeightRequest="20" HorizontalOptions="Center" CornerRadius="15"  Margin="0" Padding="20" BackgroundColor="Maroon"/>
+                        <Frame Grid.Column="1" Grid.Row="0" HeightRequest="20" HorizontalOptions="Center" CornerRadius="15" x:Name="SelectedColor" Margin="0" Padding="20"/>
                     </Grid>
                     <Grid Grid.Row="1">            
                         <Label Grid.Column="0" FontSize="15" Style="{StaticResource Header2Style}"
@@ -142,12 +142,90 @@
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="30"/>
                                             </Grid.RowDefinitions>
-                                            <Frame Grid.Column="0" Grid.Row="0" HeightRequest="20" HorizontalOptions="Center" CornerRadius="15"  Margin="0" Padding="20" BackgroundColor="Maroon"/>
-                                            <Frame Grid.Column="2" Grid.Row="0" HeightRequest="20"  WidthRequest="20" HorizontalOptions="Center" CornerRadius="15"  Margin="0" Padding="20" BackgroundColor="Red"/>
-                                            <Frame Grid.Column="4" Grid.Row="0" HeightRequest="20"  WidthRequest="20" HorizontalOptions="Center" CornerRadius="15"  Margin="0" Padding="20" BackgroundColor="Blue"/>
-                                            <Frame Grid.Column="6" Grid.Row="0" HeightRequest="20"  WidthRequest="20" HorizontalOptions="Center" CornerRadius="15"  Margin="0" Padding="20" BackgroundColor="Orange"/>
-                                            <Frame Grid.Column="8" Grid.Row="0" HeightRequest="20"  WidthRequest="20" HorizontalOptions="Center" CornerRadius="15"  Margin="0" Padding="20" BackgroundColor="LightCoral"/>
-                                            <Frame Grid.Column="10" Grid.Row="0" HeightRequest="20"  WidthRequest="20" HorizontalOptions="Center" CornerRadius="15"  Margin="0" Padding="20" BackgroundColor="Green"/>
+                                             <Frame
+                                                Grid.Column="0"
+                                                Grid.Row="0"
+                                                HeightRequest="20"
+                                                HorizontalOptions="Center"
+                                                CornerRadius="15"
+                                                Margin="0"
+                                                Padding="20"
+                                                BackgroundColor = "{Binding FirtstColor }">
+                                                    <Frame.GestureRecognizers>
+                                                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Text_Tapped" CommandParameter="{Binding FirtstColor}"/>
+                                                    </Frame.GestureRecognizers>
+                                            </Frame>
+
+                                            <Frame
+                                                Grid.Column="2"
+                                                Grid.Row="0"
+                                                HeightRequest="20"
+                                                HorizontalOptions="Center"
+                                                CornerRadius="15"
+                                                Margin="0"
+                                                Padding="20"
+                                                BackgroundColor = "{Binding SecondColor }">
+                                                    <Frame.GestureRecognizers>
+                                                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Text_Tapped" CommandParameter="{Binding SecondColor}"/>
+                                                    </Frame.GestureRecognizers>
+                                            </Frame>
+
+                                            <Frame
+                                                Grid.Column="4"
+                                                Grid.Row="0"
+                                                HeightRequest="20"
+                                                HorizontalOptions="Center"
+                                                CornerRadius="15"
+                                                Margin="0"
+                                                Padding="20"
+                                                BackgroundColor = "{Binding ThirdColor }">
+                                                    <Frame.GestureRecognizers>
+                                                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Text_Tapped" CommandParameter="{Binding ThirdColor}"/>
+                                                    </Frame.GestureRecognizers>
+                                            </Frame>
+
+                                            <Frame
+                                                Grid.Column="6"
+                                                Grid.Row="0"
+                                                HeightRequest="20"
+                                                HorizontalOptions="Center"
+                                                CornerRadius="15"
+                                                Margin="0"
+                                                Padding="20"
+                                                BackgroundColor = "{Binding FourthColor }">
+                                                    <Frame.GestureRecognizers>
+                                                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Text_Tapped" CommandParameter="{Binding FourthColor}"/>
+                                                    </Frame.GestureRecognizers>
+                                            </Frame>
+
+                                           <Frame
+                                                Grid.Column="8"
+                                                Grid.Row="0"
+                                                HeightRequest="20"
+                                                HorizontalOptions="Center"
+                                                CornerRadius="15"
+                                                Margin="0"
+                                                Padding="20"
+                                                BackgroundColor = "{Binding FifthColor }">
+                                                    <Frame.GestureRecognizers>
+                                                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Text_Tapped" CommandParameter="{Binding FifthColor}"/>
+                                                    </Frame.GestureRecognizers>
+                                            </Frame>
+                                           
+                                           
+                                            <Frame
+                                                Grid.Column="10"
+                                                Grid.Row="0"
+                                                HeightRequest="20"
+                                                HorizontalOptions="Center"
+                                                CornerRadius="15"
+                                                Margin="0"
+                                                Padding="20"
+                                                BackgroundColor = "{Binding SixthColor }">
+                                                    <Frame.GestureRecognizers>
+                                                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Text_Tapped" CommandParameter="{Binding SixthColor}"/>
+                                                    </Frame.GestureRecognizers>
+                                            </Frame>
                                         </Grid>
                                     </StackLayout>
                                 </DataTemplate>
@@ -228,16 +306,91 @@
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="30"/>
                                             </Grid.RowDefinitions>
-                                            <Frame Grid.Column="0" Grid.Row="0" HeightRequest="20" HorizontalOptions="Center" CornerRadius="15"  Margin="0" Padding="20" BackgroundColor="Maroon">
-                                                <Frame.GestureRecognizers>
-                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
-                                                </Frame.GestureRecognizers>
+                                            <Frame
+                                                Grid.Column="0"
+                                                Grid.Row="0"
+                                                HeightRequest="20"
+                                                HorizontalOptions="Center"
+                                                CornerRadius="15"
+                                                Margin="0"
+                                                Padding="20"
+                                                BackgroundColor = "{Binding FirtstColor }">
+                                                    <Frame.GestureRecognizers>
+                                                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" CommandParameter="{Binding FirtstColor}"/>
+                                                    </Frame.GestureRecognizers>
                                             </Frame>
-                                            <Frame Grid.Column="2" Grid.Row="0" HeightRequest="20"  WidthRequest="20" HorizontalOptions="Center" CornerRadius="15"  Margin="0" Padding="20" BackgroundColor="Red"/>
-                                            <Frame Grid.Column="4" Grid.Row="0" HeightRequest="20"  WidthRequest="20" HorizontalOptions="Center" CornerRadius="15"  Margin="0" Padding="20" BackgroundColor="Blue"/>
-                                            <Frame Grid.Column="6" Grid.Row="0" HeightRequest="20"  WidthRequest="20" HorizontalOptions="Center" CornerRadius="15"  Margin="0" Padding="20" BackgroundColor="Orange"/>
-                                            <Frame Grid.Column="8" Grid.Row="0" HeightRequest="20"  WidthRequest="20" HorizontalOptions="Center" CornerRadius="15"  Margin="0" Padding="20" BackgroundColor="LightCoral"/>
-                                            <Frame Grid.Column="10" Grid.Row="0" HeightRequest="20"  WidthRequest="20" HorizontalOptions="Center" CornerRadius="15"  Margin="0" Padding="20" BackgroundColor="Green"/>
+
+                                            <Frame
+                                                Grid.Column="2"
+                                                Grid.Row="0"
+                                                HeightRequest="20"
+                                                HorizontalOptions="Center"
+                                                CornerRadius="15"
+                                                Margin="0"
+                                                Padding="20"
+                                                BackgroundColor = "{Binding SecondColor }">
+                                                    <Frame.GestureRecognizers>
+                                                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" CommandParameter="{Binding SecondColor}"/>
+                                                    </Frame.GestureRecognizers>
+                                            </Frame>
+
+                                            <Frame
+                                                Grid.Column="4"
+                                                Grid.Row="0"
+                                                HeightRequest="20"
+                                                HorizontalOptions="Center"
+                                                CornerRadius="15"
+                                                Margin="0"
+                                                Padding="20"
+                                                BackgroundColor = "{Binding ThirdColor }">
+                                                    <Frame.GestureRecognizers>
+                                                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" CommandParameter="{Binding ThirdColor}"/>
+                                                    </Frame.GestureRecognizers>
+                                            </Frame>
+
+                                            <Frame
+                                                Grid.Column="6"
+                                                Grid.Row="0"
+                                                HeightRequest="20"
+                                                HorizontalOptions="Center"
+                                                CornerRadius="15"
+                                                Margin="0"
+                                                Padding="20"
+                                                BackgroundColor = "{Binding FourthColor }">
+                                                    <Frame.GestureRecognizers>
+                                                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" CommandParameter="{Binding FourthColor}"/>
+                                                    </Frame.GestureRecognizers>
+                                            </Frame>
+
+                                           <Frame
+                                                Grid.Column="8"
+                                                Grid.Row="0"
+                                                HeightRequest="20"
+                                                HorizontalOptions="Center"
+                                                CornerRadius="15"
+                                                Margin="0"
+                                                Padding="20"
+                                                BackgroundColor = "{Binding FifthColor }">
+                                                    <Frame.GestureRecognizers>
+                                                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" CommandParameter="{Binding FifthColor}"/>
+                                                    </Frame.GestureRecognizers>
+                                            </Frame>
+                                           
+                                           
+                                            <Frame
+                                                Grid.Column="10"
+                                                Grid.Row="0"
+                                                HeightRequest="20"
+                                                HorizontalOptions="Center"
+                                                CornerRadius="15"
+                                                Margin="0"
+                                                Padding="20"
+                                                BackgroundColor = "{Binding SixthColor }">
+                                                    <Frame.GestureRecognizers>
+                                                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" CommandParameter="{Binding SixthColor}"/>
+                                                    </Frame.GestureRecognizers>
+                                            </Frame>
+
                                         </Grid>
                                     </StackLayout>
                                 </DataTemplate>

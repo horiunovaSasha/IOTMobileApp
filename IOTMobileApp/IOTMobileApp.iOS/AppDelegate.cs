@@ -47,7 +47,6 @@ namespace IOTMobileApp.iOS
             var folderName = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal),"..", "Library");
             var fullPath = Path.Combine(folderName, dbName);
             LoadApplication(new App(fullPath));
-
             return base.FinishedLaunching(app, options);
         }
     }

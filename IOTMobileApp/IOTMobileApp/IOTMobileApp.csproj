@@ -25,6 +25,9 @@
   <ItemGroup>
     <Compile Remove="Views\BrightnessPage.xaml.cs" />
     <Compile Remove="Views\AboutPage %28copy%29.xaml.cs" />
+    <Compile Remove="Services\MqttConnectedHandler.cs" />
+    <Compile Remove="Services\MqttClientRepository.cs" />
+    <Compile Remove="Services\MqttDisconnectedHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Views\AlarmPage.xaml.cs">

@@ -7,13 +7,17 @@ using Xamarin.Forms;
 
 using IOTMobileApp.Models;
 using IOTMobileApp.Views;
+using System.Collections.Generic;
 
 namespace IOTMobileApp.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
         public ObservableCollection<Item> Items { get; set; }
+        public List<Colour> Colors { get; set; }
         public Command LoadItemsCommand { get; set; }
+
+        public string SelectedColor = "Red";
 
         public ItemsViewModel()
         {
@@ -21,6 +25,7 @@ namespace IOTMobileApp.ViewModels
             Items = new ObservableCollection<Item>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
+            Colors = DataStore.GetColours();
             MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
             {
                 var newItem = item as Item;

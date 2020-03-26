@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using IOTMobileApp.Models;
 
 namespace IOTMobileApp.Services
 {
@@ -11,5 +12,6 @@ namespace IOTMobileApp.Services
         Task<bool> DeleteItemAsync(string id);
         Task<T> GetItemAsync(string id);
         Task<IEnumerable<T>> GetItemsAsync(bool forceRefresh = false);
+        List<Colour> GetColours();
     }
 }

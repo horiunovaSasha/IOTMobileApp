@@ -15,18 +15,7 @@
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>
-                <views:ItemsPage />
-            </x:Arguments>
-        </NavigationPage>
-
-         <NavigationPage Title="Будильник">
-            <NavigationPage.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="iOS" Value="alarm.png"/>
-                </OnPlatform>
-            </NavigationPage.Icon>
-            <x:Arguments>
-                <views:AlarmsPage />
+                <views:FindFlightsView />
             </x:Arguments>
         </NavigationPage>
         
@@ -40,27 +29,7 @@
                 <views:BrightPage />
             </x:Arguments>
         </NavigationPage>
-        
-         <NavigationPage Title="Нічник">
-            <NavigationPage.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="iOS" Value="night.png"/>
-                </OnPlatform>
-            </NavigationPage.Icon>
-            <x:Arguments>
-                <views:NightLightPage />
-            </x:Arguments>
-        </NavigationPage>
-         <NavigationPage Title="Сигналізація">
-            <NavigationPage.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="iOS" Value="al.png"/>
-                </OnPlatform>
-            </NavigationPage.Icon>
-            <x:Arguments>
-                <views:FindFlightsView />
-            </x:Arguments>
-        </NavigationPage>
+      
     </TabbedPage.Children>
     
 </TabbedPage>
