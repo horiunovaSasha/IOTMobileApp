@@ -4,6 +4,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using IOTMobileApp.Services;
 using IOTMobileApp.Views;
+using System.Threading.Tasks;
 
 namespace IOTMobileApp
 {
@@ -36,9 +37,12 @@ namespace IOTMobileApp
                 DependencyService.Register<AzureDataStore>();
             MainPage = new NavigationPage(new LoginPage());
             DatabaseLocalion = databaseLocation;
+
+            Task.Run(MqttService.Init);
         }
         protected override void OnStart()
         {
+
         }
 
         protected override void OnSleep()
@@ -48,5 +52,6 @@ namespace IOTMobileApp
         protected override void OnResume()
         {
         }
+
     }
 }

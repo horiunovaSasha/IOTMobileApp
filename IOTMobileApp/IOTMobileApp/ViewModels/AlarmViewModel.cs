@@ -27,12 +27,12 @@ namespace IOTMobileApp.ViewModels
             {
                 var newItem = item as Alarm;
                 Alarms.Add(newItem);
-                await AlarmDataStore.AddAlarmAsync(newItem);
+                //await AlarmDataStore.AddAlarmAsync(newItem);
             });
             MessagingCenter.Subscribe<AlarmDetailsPage, Alarm>(this, "UpdateAlarm", async (obj, item) =>
             {
                 var newItem = item as Alarm;
-                await AlarmDataStore.UpdateAlarmAsync(newItem);
+                //await AlarmDataStore.UpdateAlarmAsync(newItem);
             });
         }
 
@@ -46,11 +46,11 @@ namespace IOTMobileApp.ViewModels
             try
             {
                 Alarms.Clear();
-                var items = await AlarmDataStore.GetAlarmsAsync(true);
-                foreach (var item in items)
-                {
-                    Alarms.Add(item);
-                }
+               // var items = await AlarmDataStore.GetAlarmsAsync(true);
+                //foreach (var item in items)
+                //{
+                //    Alarms.Add(item);
+                //}
             }
             catch (Exception ex)
             {
@@ -69,19 +69,19 @@ namespace IOTMobileApp.ViewModels
 
             IsBusy = true;
 
-            try
-            {
-                await AlarmDataStore.DeleteAlarmAsync(id);
+            //try
+            //{
+            //    await AlarmDataStore.DeleteAlarmAsync(id);
                
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
-            finally
-            {
-                IsBusy = false;
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Debug.WriteLine(ex);
+            //}
+            //finally
+            //{
+            //    IsBusy = false;
+            //}
         }
     }
 }

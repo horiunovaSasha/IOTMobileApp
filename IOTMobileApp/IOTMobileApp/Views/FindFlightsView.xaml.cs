@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using IOTMobileApp.Services;
 using IOTMobileApp.ViewModels;
+using MQTTnet.Client;
 using Xamarin.Forms;
 
 namespace IOTMobileApp.Views
@@ -14,10 +16,10 @@ namespace IOTMobileApp.Views
         public FindFlightsView()
         {
             InitializeComponent();
-
             BindingContext = viewModel = new ItemsViewModel();
             Monkeys = new List<string>() { "Red", "Blue" };
-           
+
+            
         }
         protected override void OnAppearing()
         {
@@ -25,7 +27,7 @@ namespace IOTMobileApp.Views
 
             if (viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
-            MqttPublishService.SendMessage(Topics.RAINBOW_CLOCK_TOPIC, "");
+            Task.Run(() => MqttService.SendMessage(Topics.RAINBOW_CLOCK_TOPIC, ""));
             SelectedColor.BackgroundColor = Color.Maroon;
         }
 
@@ -34,18 +36,18 @@ namespace IOTMobileApp.Views
             if (BrightnessSwitch.IsToggled)
             {
                 BrightnessSlider.IsEnabled = true;
-                MqttPublishService.SendMessage(Topics.SET_AUTO_BRIGHTNESS_TOPIC, "0");
+                MqttService.SendMessage(Topics.SET_AUTO_BRIGHTNESS_TOPIC, "0");
             }
             else
             {
-                MqttPublishService.SendMessage(Topics.SET_AUTO_BRIGHTNESS_TOPIC, "1");
+                MqttService.SendMessage(Topics.SET_AUTO_BRIGHTNESS_TOPIC, "1");
             }
         }
 
         void BrightnessSlider_PropertyChanging(System.Object sender, Xamarin.Forms.PropertyChangingEventArgs e)
         {
             var brightnessValue = BrightnessSlider.Value.ToString();
-            MqttPublishService.SendMessage(Topics.COLOR_CLOCK_TOPIC, brightnessValue);
+            MqttService.SendMessage(Topics.COLOR_CLOCK_TOPIC, brightnessValue);
 
         }
 
@@ -53,7 +55,7 @@ namespace IOTMobileApp.Views
         {
             if (RainbowSwitch.IsToggled)
             {
-                MqttPublishService.SendMessage(Topics.RAINBOW_CLOCK_TOPIC, "");
+                MqttService.SendMessage(Topics.RAINBOW_CLOCK_TOPIC, "");
             }
             BackgroundSwitch.IsToggled = !RainbowSwitch.IsToggled;
            
@@ -88,18 +90,20 @@ namespace IOTMobileApp.Views
                 var color = gesture.CommandParameter.ToString();
                 var rgbColor = viewModel.Colors.Find(x => x.Hex == color);
 
-                MqttPublishService.SendMessage(Topics.COLOR_CLOCK_TOPIC, string.Format("{0},{1},{2}", rgbColor.R, rgbColor.G, rgbColor.B));
+                MqttService.SendMessage(Topics.COLOR_CLOCK_TOPIC, string.Format("{0},{1},{2}", rgbColor.R, rgbColor.G, rgbColor.B));
             }
         }
+
         void TapGestureRecognizer_Text_Tapped(System.Object sender, System.EventArgs e)
         {
             var item = (Frame)sender;
+            
 
             var gesture = (TapGestureRecognizer)item.GestureRecognizers[0];
             var color = gesture.CommandParameter.ToString();
             var rgbColor = viewModel.Colors.Find(x => x.Hex == color);
 
-            MqttPublishService.SendMessage(Topics.TEXT_COLOR_TOPIC, string.Format("{0},{1},{2}", rgbColor.R, rgbColor.G, rgbColor.B));
+            MqttService.SendMessage(Topics.TEXT_COLOR_TOPIC, string.Format("{0},{1},{2}", rgbColor.R, rgbColor.G, rgbColor.B));
             SelectedColor.BackgroundColor = Color.FromHex(color);
         }
     }

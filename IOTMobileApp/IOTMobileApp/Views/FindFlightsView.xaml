@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:controls="clr-namespace:RealSimpleCircle.Abstractions;assembly=RealSimpleCircle.Abstractions"
-             
+              Title="Eфекти"
              mc:Ignorable="d"
              x:Class="IOTMobileApp.Views.FindFlightsView">
    <ContentPage.Resources>
@@ -12,7 +12,6 @@
             <Color x:Key="WhiteColor">#FFFFFF</Color>
             <Color x:Key="BlackColor">#000000</Color>
             <Color x:Key="BackgroundColor">#F6F4FC</Color>
-            <Color x:Key="AccentColor">#63C3F1</Color>
            
             <OnPlatform x:Key="SourceSansProRegular"
                         x:TypeArguments="x:String"

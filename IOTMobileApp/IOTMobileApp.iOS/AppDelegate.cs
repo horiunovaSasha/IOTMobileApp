@@ -31,7 +31,7 @@ namespace IOTMobileApp.iOS
             ServicePointManager
                 .ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
 
-            UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB(223,27, 61); //bar background
+            UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB(223, 27, 61); //bar background
             UINavigationBar.Appearance.TintColor = UIColor.White; //Tint color of button items
             UINavigationBar.Appearance.SetTitleTextAttributes(new UITextAttributes()
             {

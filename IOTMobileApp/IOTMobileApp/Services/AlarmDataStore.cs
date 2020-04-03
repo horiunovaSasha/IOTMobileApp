@@ -7,22 +7,22 @@ using SQLite;
 
 namespace IOTMobileApp.Services
 {
-    public class AlarmDataStore : IAlarmDataStore<Alarm>
+    public class AlertDataStore 
     {
-        private List<Alarm> alarms;
+        private List<Alert> alarms;
 
-        public AlarmDataStore()
+        public AlertDataStore()
         {
             //var connection = new SQLiteConnection(App.DatabaseLocalion);
             //connection.DeleteAll<Alarm>();
             alarms = GetAlarmsAsync(false).Result.ToList();
         }
 
-        public async Task<bool> AddAlarmAsync(Alarm alarm)
+        public async Task<bool> AddAlarmAsync(Alert alarm)
         {
            // alarms.Add(alarm);
             var connection = new SQLiteConnection(App.DatabaseLocalion);
-            connection.CreateTable<Alarm>();
+            connection.CreateTable<Alert>();
             var rows = connection.Insert(alarm);
             connection.Close();
             if (rows > 0) 
@@ -34,98 +34,98 @@ namespace IOTMobileApp.Services
 
         public async Task<bool> UpdateAlarmAsync(Alarm alarm)
         {
-            var connection = new SQLiteConnection(App.DatabaseLocalion);
-            connection.CreateTable<Alarm>();
-            var rows = connection.Update(alarm);
+            //var connection = new SQLiteConnection(App.DatabaseLocalion);
+            //connection.CreateTable<Alarm>();
+            //var rows = connection.Update(alarm);
 
-            if (rows > 0)
-            {
-                return await Task.FromResult(true);
-                alarms = GetAlarmsAsync(false).Result.ToList();
-            }
+            //if (rows > 0)
+            //{
+            //    return await Task.FromResult(true);
+            //    alarms = GetAlarmsAsync(false).Result.ToList();
+            //}
             
-            //var oldItem = alarms.FirstOrDefault((arg) => arg.Id == alarm.Id);
-            //alarms.Remove(oldItem);
-            //alarms.Add(alarm);
+            ////var oldItem = alarms.FirstOrDefault((arg) => arg.Id == alarm.Id);
+            ////alarms.Remove(oldItem);
+            ////alarms.Add(alarm);
 
             return await Task.FromResult(false);
         }
 
         public async Task<bool> DeleteAlarmAsync(int id)
         {
-            //var oldItem = alarms.FirstOrDefault(arg => arg.Id == id);
-            //alarms.Remove(oldItem);
+            ////var oldItem = alarms.FirstOrDefault(arg => arg.Id == id);
+            ////alarms.Remove(oldItem);
 
-            //return await Task.FromResult(true);
+            ////return await Task.FromResult(true);
 
-            var connection = new SQLiteConnection(App.DatabaseLocalion);
-            connection.CreateTable<Alarm>();
-            var itemToDelete = alarms.FirstOrDefault(x => x.Id == id);
-            var rows = connection.Delete(itemToDelete);
+            //var connection = new SQLiteConnection(App.DatabaseLocalion);
+            //connection.CreateTable<Alarm>();
+            //var itemToDelete = alarms.FirstOrDefault(x => x.Id == id);
+            //var rows = connection.Delete(itemToDelete);
 
-            if (rows > 0)
-            {
-                alarms = GetAlarmsAsync(false).Result.ToList();
-                return await Task.FromResult(true);
-            }
+            //if (rows > 0)
+            //{
+            //    alarms = GetAlarmsAsync(false).Result.ToList();
+            //    return await Task.FromResult(true);
+            //}
            
             return await Task.FromResult(false);
         }
 
-        public async Task<Alarm> GetAlarmAsync(int id)
+        public async Task<Alert> GetAlarmAsync(int id)
         {
             return await Task.FromResult(alarms.FirstOrDefault(s => s.Id == id));
         }
 
-        public async Task<IEnumerable<Alarm>> GetAlarmsAsync(bool forceRefresh = false)
+        public async Task<IEnumerable<Alert>> GetAlarmsAsync(bool forceRefresh = false)
         {
             var connection = new SQLiteConnection(App.DatabaseLocalion);
             connection.CreateTable<Alarm>();
-            var alarms = (from x in connection.Table<Alarm>() select x).ToList();
+            var alarms = (from x in connection.Table<Alert>() select x).ToList();
             connection.Close();
 
-            GetStringOfDays(alarms);
+            //GetStringOfDays(alarms);
 
             return await Task.FromResult(alarms);
         }
 
-        private void GetStringOfDays(List<Alarm> alarms)
-        {
-            foreach (var alarm in alarms)
-            {
-                alarm.DisplaDaysSting += "Повтор: ";
-                if (!string.IsNullOrEmpty(alarm.SerializedDays))
-                {
-                    var days = alarm.SerializedDays.Replace('[', ' ').Replace(']', ' ').Trim().Split(',').ToList();
-                    if (days.Count() > 1)
-                    {
-                        foreach (var day in days)
-                        {
-                            alarm.DisplaDaysSting += $"{GetShortDay(day)} ";
-                        }
-                    }
-                    else
-                    {
-                        alarm.DisplaDaysSting += "не встановлено";
-                    }
+        //private void GetStringOfDays(List<Alarm> alarms)
+        //{
+        //    foreach (var alarm in alarms)
+        //    {
+        //        alarm.DisplaDaysSting += "Повтор: ";
+        //        if (!string.IsNullOrEmpty(alarm.SerializedDays))
+        //        {
+        //            var days = alarm.SerializedDays.Replace('[', ' ').Replace(']', ' ').Trim().Split(',').ToList();
+        //            if (days.Count() > 1)
+        //            {
+        //                foreach (var day in days)
+        //                {
+        //                    alarm.DisplaDaysSting += $"{GetShortDay(day)} ";
+        //                }
+        //            }
+        //            else
+        //            {
+        //                alarm.DisplaDaysSting += "не встановлено";
+        //            }
                     
-                }
-            }
-        }
-        private string GetShortDay(string day)
-        {
-            int parsedDay = int.Parse(day);
-            switch (parsedDay)
-            {
-                case 1: return "ПН";
-                case 2: return "ВТ";
-                case 3: return "СР";
-                case 4: return "ЧТ";
-                case 5: return "ПТ";
-                case 6: return "СБ";
-                case 7: return "НД";
-                default: return string.Empty;
-            }
-        }
+        //        }
+        //    }
+        //}
+        //private string GetShortDay(string day)
+        //{
+        //    int parsedDay = int.Parse(day);
+        //    switch (parsedDay)
+        //    {
+        //        case 1: return "ПН";
+        //        case 2: return "ВТ";
+        //        case 3: return "СР";
+        //        case 4: return "ЧТ";
+        //        case 5: return "ПТ";
+        //        case 6: return "СБ";
+        //        case 7: return "НД";
+        //        default: return string.Empty;
+        //    }
+        //}
     }
 }
