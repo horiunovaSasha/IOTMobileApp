@@ -87,7 +87,7 @@
                     FontSize="17"
                    Style="{StaticResource HeaderStyle}"
                 />
-                      <suave:BorderlessTimePicker FontSize="30"   Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="0" Time="{Binding Alarm.Time}" />
+                      <suave:BorderlessTimePicker FontSize="30"  x:Name="ClockTime" PropertyChanged="ClockTime_PropertyChanged" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="0" Time="{Binding Alarm.Time}" />
                 </Grid>
             </pancakeview:PancakeView>
 
@@ -111,7 +111,7 @@
                         </Grid.ColumnDefinitions>
                         <Label Grid.Column="0" Style="{StaticResource Header2Style}" FontSize="15" Grid.Row="0" Margin="6"
                             Text="На табло періодично буде відображатись температура в преміщенні" />
-                        <Switch Grid.Column="1" VerticalOptions="Center"  IsToggled="True" Grid.Row="0"/>
+                        <Switch Grid.Column="1" VerticalOptions="Center" x:Name="TempSwitch" Toggled="TempSwitch_Toggled" IsToggled="True" Grid.Row="0"/>
                     </Grid>
                 </Grid>
             </pancakeview:PancakeView>
@@ -136,7 +136,7 @@
                         </Grid.ColumnDefinitions>
                         <Label Grid.Column="0" Style="{StaticResource Header2Style}" FontSize="15" Grid.Row="0" Margin="6"
                             Text="Годинник підсічуватись на 10 секунд, якщо буде вииявлено рух" />
-                        <Switch Grid.Column="1" VerticalOptions="Center" x:Name="RainbowSwitch" IsToggled="True" Grid.Row="0"/>
+                        <Switch Grid.Column="1" VerticalOptions="Center" x:Name="NightModeSwitch" Toggled="NightModeSwitch_Toggled" IsToggled="True" Grid.Row="0"/>
                     </Grid>
                 <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
@@ -156,7 +156,7 @@
 
                     Grid.Column="0"
                 />
-                    <suave:BorderlessTimePicker FontSize="30"  Grid.Column="1" Grid.Row="0" Time="{Binding Alarm.Time}" />
+                    <suave:BorderlessTimePicker FontSize="30" x:Name="FromTime"  PropertyChanged="FromTime_PropertyChanged" Grid.Column="1" Grid.Row="0" Time="{Binding Alarm.Time}" />
 
                     <Label 
                     Grid.Row="0" 
@@ -166,7 +166,7 @@
                     FontAttributes="Bold"
                         Grid.Column="2"
                 />
-                    <suave:BorderlessTimePicker FontSize="30" Grid.Column="3" Grid.Row="0" Time="{Binding Alarm.Time}" />
+                    <suave:BorderlessTimePicker FontSize="30" Grid.Column="3" Grid.Row="0" x:Name="ToTime" PropertyChanged="ToTime_PropertyChanged" Time="{Binding Alarm.Time}" />
                    
 
                 </Grid>
@@ -199,7 +199,7 @@
                         </Grid.RowDefinitions>
                         <Label Grid.Column="0" Style="{StaticResource Header2Style}" FontSize="15" Grid.Row="0" Margin="6"
                             Text="При ввімкненні ви можете отримати сповіщення на телефон, якщо виявлено рух поблизу годинника" />
-                        <Switch Grid.Column="1" VerticalOptions="Center" x:Name="AlertSwitch" IsToggled="True" Grid.Row="0"/>
+                        <Switch Grid.Column="1" VerticalOptions="Center" x:Name="AlertSwitch" Toggled="AlertSwitch_Toggled" IsToggled="True" Grid.Row="0"/>
                         
                     <Label Grid.Row="1" FontAttributes="Italic" Text="Переглянути сповіщення безпеки" Grid.ColumnSpan="2">
                         <Label.GestureRecognizers >
