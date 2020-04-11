@@ -29,5 +29,10 @@ namespace IOTMobileApp.Views
                 
             });
         }
+
+        void TapGestureRecognizer_Tapped(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new AlertsListPage());
+        }
     }
 }

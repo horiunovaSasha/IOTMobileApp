@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using IOTMobileApp.Models;
@@ -13,7 +14,7 @@ namespace IOTMobileApp.Services
 
         public AlertDataStore()
         {
-            alerts = GetAlarmsAsync(false).Result.ToList();
+           // alerts = GetAlarmsAsync(false).Result.ToList();
         }
 
         public async Task<bool> AddAlarmAsync(Alert alarm)
@@ -34,10 +35,10 @@ namespace IOTMobileApp.Services
             return await Task.FromResult(alerts.FirstOrDefault(s => s.Id == id));
         }
 
-        public async Task<IEnumerable<Alert>> GetAlarmsAsync(bool forceRefresh = false)
+        public async Task<List<Alert>> GetAlarmsAsync(bool forceRefresh = false)
         {
             var connection = new SQLiteConnection(App.DatabaseLocalion);
-            connection.CreateTable<Alarm>();
+            connection.CreateTable<Alert>();
             var alarms = (from x in connection.Table<Alert>() select x).ToList();
             connection.Close();
             return await Task.FromResult(alarms);

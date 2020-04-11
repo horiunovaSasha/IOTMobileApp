@@ -14,14 +14,19 @@ namespace IOTMobileApp
             DeviceInfo.Platform == DevicePlatform.Android ? "http://10.0.2.2:5000" : "http://localhost:5000";
         public static bool UseMockDataStore = true;
         public static string DatabaseLocalion;
-
+        public App()
+        {
+            InitializeComponent();
+            DependencyService.Register<DataStore>();
+            MainPage = new NavigationPage(new MainPage());
+        }
         public App( string databaseLocation)
         {
             InitializeComponent();
-
-            DependencyService.Register<DataStore>();
-            MainPage = new NavigationPage(new LoginPage());
             DatabaseLocalion = databaseLocation;
+            //DependencyService.Register<DataStore>();
+            MainPage = new NavigationPage(new MainPage());
+           
 
             Task.Run(MqttService.Init);
         }

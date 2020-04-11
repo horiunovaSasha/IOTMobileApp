@@ -91,6 +91,31 @@
                 </Grid>
             </pancakeview:PancakeView>
 
+                <pancakeview:PancakeView BackgroundColor="{StaticResource WhiteColor}" CornerRadius="6" Padding="12">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid
+                        Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" FontSize="17" Text="Увімкнути відображення термометра" Style="{StaticResource HeaderStyle}"/> 
+                    </Grid>
+                    <Grid
+                        Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="4*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Style="{StaticResource Header2Style}" FontSize="15" Grid.Row="0" Margin="6"
+                            Text="На табло періодично буде відображатись температура в преміщенні" />
+                        <Switch Grid.Column="1" VerticalOptions="Center"  IsToggled="True" Grid.Row="0"/>
+                    </Grid>
+                </Grid>
+            </pancakeview:PancakeView>
+
             <pancakeview:PancakeView BackgroundColor="{StaticResource WhiteColor}" CornerRadius="6" Padding="12">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -168,17 +193,26 @@
                             <ColumnDefinition Width="4*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
                         <Label Grid.Column="0" Style="{StaticResource Header2Style}" FontSize="15" Grid.Row="0" Margin="6"
                             Text="При ввімкненні ви можете отримати сповіщення на телефон, якщо виявлено рух поблизу годинника" />
                         <Switch Grid.Column="1" VerticalOptions="Center" x:Name="AlertSwitch" IsToggled="True" Grid.Row="0"/>
                         
-                    <!--<Label Grid.Row="2" Text="Переглянути сповіщення" Grid.ColumnSpan="3" Grid.Column="0"/>
-                     <Label Grid.Row="2" Text="->" Grid.ColumnSpan="3" Grid.Column="3"/>-->
+                    <Label Grid.Row="1" FontAttributes="Italic" Text="Переглянути сповіщення безпеки" Grid.ColumnSpan="2">
+                        <Label.GestureRecognizers >
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    
                     </Grid>
                 
                                               
                 </Grid>
             </pancakeview:PancakeView>
+
           </StackLayout>
         </pancakeview:PancakeView>
         
