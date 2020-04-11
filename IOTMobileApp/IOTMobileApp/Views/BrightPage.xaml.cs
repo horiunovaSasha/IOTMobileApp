@@ -23,7 +23,7 @@ namespace IOTMobileApp.Views
             {
                 try
                 {
-                    MessagingCenter.Send(this, "AddAlert", new Alert() { Message = "Test", RecievedTime = DateTime.Now});
+                    MessagingCenter.Send(this, "AddAlert", new Alert() { Message = "Спрацювання датчику руху, зафіксовано рух в преміщені", RecievedTime = DateTime.Now});
                 }
                 catch (Exception ex) { }
                 

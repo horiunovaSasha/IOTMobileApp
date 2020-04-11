@@ -28,37 +28,49 @@
     <Compile Remove="Services\MqttConnectedHandler.cs" />
     <Compile Remove="Services\MqttClientRepository.cs" />
     <Compile Remove="Services\MqttDisconnectedHandler.cs" />
+    <Compile Remove="Views\AboutPage.xaml.cs" />
+    <Compile Remove="Views\AlarmDetailsPage.xaml.cs" />
+    <Compile Remove="Views\AlarmPage.xaml.cs" />
+    <Compile Remove="Views\AlertPage.xaml.cs" />
+    <Compile Remove="Views\ItemDetailPage.xaml.cs" />
+    <Compile Remove="Views\ItemsPage.xaml.cs" />
+    <Compile Remove="Views\NewAlarmPage.xaml.cs" />
+    <Compile Remove="Views\NewItemPage.xaml.cs" />
+    <Compile Remove="Views\NightLightPage.xaml.cs" />
+    <Compile Remove="ViewModels\ItemDetailViewModel.cs" />
+    <Compile Remove="ViewModels\AboutViewModel.cs" />
+    <Compile Remove="ViewModels\AlarmDetailViewModel.cs" />
+    <Compile Remove="ViewModels\AlarmViewModel.cs" />
+    <Compile Remove="Services\AzureDataStore.cs" />
+    <Compile Remove="Services\IAlarmDataStore.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Views\AlarmPage.xaml.cs">
-      <DependentUpon>AlarmPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\AlarmDetailsPage.xaml.cs">
-      <DependentUpon>AlarmDetailsPage.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\BrightPage.xaml.cs">
       <DependentUpon>BrightPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\NewAlarmPage.xaml.cs">
-      <DependentUpon>NewAlarmPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\NightLightPage.xaml.cs">
-      <DependentUpon>NightLightPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\AlertPage.xaml.cs">
-      <DependentUpon>AlertPage.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Remove="Views\BrightnessPage.xaml" />
+    <EmbeddedResource Remove="Views\AboutPage.xaml" />
+    <EmbeddedResource Remove="Views\AlarmDetailsPage.xaml" />
+    <EmbeddedResource Remove="Views\AlarmPage.xaml" />
+    <EmbeddedResource Remove="Views\AlertPage.xaml" />
+    <EmbeddedResource Remove="Views\ItemDetailPage.xaml" />
+    <EmbeddedResource Remove="Views\ItemsPage.xaml" />
+    <EmbeddedResource Remove="Views\NewAlarmPage.xaml" />
+    <EmbeddedResource Remove="Views\NewItemPage.xaml" />
+    <EmbeddedResource Remove="Views\NightLightPage.xaml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Views\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Views\settings.png" />
   </ItemGroup>
 </Project>

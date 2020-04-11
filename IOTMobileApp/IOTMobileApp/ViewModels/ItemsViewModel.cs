@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using IOTMobileApp.Models;
 using IOTMobileApp.Views;
 using System.Collections.Generic;
+using IOTMobileApp.Services;
 
 namespace IOTMobileApp.ViewModels
 {
@@ -21,17 +22,12 @@ namespace IOTMobileApp.ViewModels
 
         public ItemsViewModel()
         {
-            Title = "Ефекти";
-            Items = new ObservableCollection<Item>();
-            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+            var datastore = new DataStore();
 
-            Colors = DataStore.GetColours();
-            MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
-            {
-                var newItem = item as Item;
-                Items.Add(newItem);
-                await DataStore.AddItemAsync(newItem);
-            });
+            Title = "Ефекти";
+            Items = datastore.GetItems();
+            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+            Colors = datastore.GetColours();
         }
 
         async Task ExecuteLoadItemsCommand()

@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using IOTMobileApp.Models;
 
 namespace IOTMobileApp.Services
 {
-    public class MockDataStore : IDataStore<Item>
+    public class DataStore 
     {
-        public List<Item> items;
+        public ObservableCollection<Item> items;
         public List<Colour> colours;
 
-        public MockDataStore()
+        public DataStore()
         {
             GetItems();
         }
@@ -54,10 +55,10 @@ namespace IOTMobileApp.Services
             return colours;
         }
 
-        public void GetItems()
+        public ObservableCollection<Item> GetItems()
         {
             InitColors();
-            items = new List<Item>();
+            items = new ObservableCollection<Item>();
             for (var i = 0; i < colours.Count(); i = i + 6)
             {
                 items.Add(new Item()
@@ -70,6 +71,7 @@ namespace IOTMobileApp.Services
                     SixthColor = colours[i + 5].Hex
                 }) ;
             }
+            return items;
         }
 
         public void InitColors()
